@@ -12,6 +12,8 @@ import {
 import { Progress } from '@/components/ui/progress';
 import DashboardSidebar from '@/components/DashboardSidebar';
 import StatsCard from '@/components/StatsCard';
+import RankProgressCard from '@/components/RankProgressCard';
+import { getUserRank } from '@/utils/rankUtils';
 import {
   BarChart3,
   Wallet,
@@ -26,6 +28,15 @@ import {
 
 const Dashboard = () => {
   const navigate = useNavigate();
+  
+  // Mock user data
+  const userData = {
+    referrals: 8,
+    stakedAmount: 2500
+  };
+  
+  const currentRank = getUserRank(userData.referrals, userData.stakedAmount);
+  
   const [activeStakes, setActiveStakes] = useState([
     {
       id: 1,
@@ -104,6 +115,15 @@ const Dashboard = () => {
                 trend={{ value: "1 user", isPositive: true }}
               />
             </div>
+          </div>
+          
+          {/* New Rank Section */}
+          <div className="mb-8">
+            <RankProgressCard
+              currentRank={currentRank}
+              referrals={userData.referrals}
+              stakedAmount={userData.stakedAmount}
+            />
           </div>
           
           {/* Active Staking Section */}
