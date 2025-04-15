@@ -13,6 +13,7 @@ import { Progress } from '@/components/ui/progress';
 import DashboardSidebar from '@/components/DashboardSidebar';
 import StatsCard from '@/components/StatsCard';
 import RankProgressCard from '@/components/RankProgressCard';
+import TokenPurchase from '@/components/TokenPurchase';
 import { getUserRank } from '@/utils/rankUtils';
 import {
   BarChart3,
@@ -124,6 +125,14 @@ const Dashboard = () => {
               referrals={userData.referrals}
               stakedAmount={userData.stakedAmount}
             />
+          </div>
+          
+          {/* Quick Buy Tokens Section */}
+          <div className="mb-8">
+            <div className="flex justify-between items-center mb-6">
+              <h2 className="text-2xl font-bold">Buy SVR Tokens</h2>
+            </div>
+            <TokenPurchase />
           </div>
           
           {/* Active Staking Section */}
