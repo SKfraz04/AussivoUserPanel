@@ -10,6 +10,8 @@ import Dashboard from "./pages/Dashboard";
 import Stake from "./pages/Stake";
 import Deposit from "./pages/Deposit";
 import ICO from "./pages/ICO";
+import Rewards from "./pages/Rewards";
+import Referrals from "./pages/Referrals";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -26,6 +28,8 @@ const App = () => (
           <Route path="/stake" element={<Stake />} />
           <Route path="/deposit" element={<Deposit />} />
           <Route path="/ico" element={<ICO />} />
+          <Route path="/rewards" element={<Rewards />} />
+          <Route path="/referrals" element={<Referrals />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
