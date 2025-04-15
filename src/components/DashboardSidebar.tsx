@@ -1,4 +1,3 @@
-
 import { Link, useLocation } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 import {
@@ -11,7 +10,8 @@ import {
   CircleDollarSign,
   LogOut,
   Menu,
-  X
+  X,
+  BadgeDollarSign
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
@@ -31,6 +31,7 @@ const DashboardSidebar = ({ onLogout }: SidebarProps) => {
   const navItems = [
     { name: 'Dashboard', path: '/dashboard', icon: LayoutDashboard },
     { name: 'Deposit', path: '/deposit', icon: Wallet },
+    { name: 'Token Sale', path: '/ico', icon: BadgeDollarSign },
     { name: 'Staking', path: '/stake', icon: CoinsIcon },
     { name: 'Rewards', path: '/rewards', icon: BarChart3 },
     { name: 'Referrals', path: '/referrals', icon: Users },

@@ -45,6 +45,9 @@ const Header = ({ isAuthenticated = false, walletAddress = '', onLogout = () => 
             <Link to="/dashboard" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
               Dashboard
             </Link>
+            <Link to="/ico" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+              Token Sale
+            </Link>
             <Link to="/stake" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
               Stake
             </Link>
@@ -91,6 +94,9 @@ const Header = ({ isAuthenticated = false, walletAddress = '', onLogout = () => 
               <div className="flex flex-col space-y-4 mt-8">
                 <Link to="/dashboard" className="text-sm font-medium">
                   Dashboard
+                </Link>
+                <Link to="/ico" className="text-sm font-medium">
+                  Token Sale
                 </Link>
                 <Link to="/stake" className="text-sm font-medium">
                   Stake
