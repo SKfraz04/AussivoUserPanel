@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,6 +62,17 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				// SVR Staking Platform Custom Colors
+				svr: {
+					primary: '#8B5CF6', // Main Purple
+					secondary: '#6E59A5', // Secondary Purple
+					dark: '#1A1F2C',    // Dark background
+					light: '#D6BCFA',   // Light purple
+					accent: '#0EA5E9',  // Bright blue accent
+					success: '#10B981', // Success green
+					warning: '#F97316', // Warning orange
+					danger: '#EF4444',  // Danger red
 				}
 			},
 			borderRadius: {
@@ -84,12 +96,47 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'fade-in': {
+					'0%': {
+						opacity: '0',
+						transform: 'translateY(10px)'
+					},
+					'100%': {
+						opacity: '1',
+						transform: 'translateY(0)'
+					}
+				},
+				'pulse-slow': {
+					'0%, 100%': {
+						opacity: '1'
+					},
+					'50%': {
+						opacity: '0.8'
+					}
+				},
+				'glow': {
+					'0%, 100%': {
+						boxShadow: '0 0 5px 2px rgba(139, 92, 246, 0.4)'
+					},
+					'50%': {
+						boxShadow: '0 0 15px 5px rgba(139, 92, 246, 0.7)'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
-			}
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'fade-in': 'fade-in 0.5s ease-out',
+				'pulse-slow': 'pulse-slow 3s ease-in-out infinite',
+				'glow': 'glow 2s ease-in-out infinite'
+			},
+			backgroundImage: {
+				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+				'hero-pattern': 'linear-gradient(to right bottom, rgba(26, 31, 44, 0.8), rgba(26, 31, 44, 0.9)), url("/hero-bg.jpg")',
+				'card-gradient': 'linear-gradient(135deg, #8B5CF6 0%, #6E59A5 100%)',
+				'dark-gradient': 'linear-gradient(to right bottom, #1A1F2C, #2A303C)',
+			},
 		}
 	},
 	plugins: [require("tailwindcss-animate")],
