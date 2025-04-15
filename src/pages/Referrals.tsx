@@ -1,24 +1,20 @@
-
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import DashboardSidebar from '@/components/DashboardSidebar';
+import ReferralStats from '@/components/ReferralStats';
 import { 
   Bell, 
-  Wallet, 
-  Users, 
   Share2,
   Copy,
   Twitter,
   Facebook,
   Mail,
   CheckCircle2,
-  ArrowUpRight
+  Users
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
-import { Progress } from '@/components/ui/progress';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useToast } from '@/hooks/use-toast';
 
 const Referrals = () => {
@@ -26,7 +22,6 @@ const Referrals = () => {
   const { toast } = useToast();
   const [copied, setCopied] = useState(false);
   
-  // Mock referral data
   const referralData = {
     referralCode: "SVR25X7YZA",
     referralLink: "https://svr-staking.com/ref/SVR25X7YZA",
@@ -79,148 +74,90 @@ const Referrals = () => {
       <DashboardSidebar onLogout={handleLogout} />
       
       <div className="lg:pl-64">
-        {/* Top bar */}
         <div className="p-4 border-b border-svr-primary/20 backdrop-blur-sm flex justify-between items-center">
-          <h1 className="text-xl font-bold">Referral Program</h1>
+          <div className="flex items-center gap-2">
+            <Users className="h-5 w-5 text-svr-primary" />
+            <h1 className="text-xl font-bold">Referral Program</h1>
+          </div>
           <Button variant="outline" size="icon" className="border-svr-primary/20">
             <Bell className="h-4 w-4" />
           </Button>
         </div>
         
-        {/* Main content */}
-        <main className="p-6">
-          {/* Referral Overview */}
-          <div className="mb-8">
-            <h2 className="text-2xl font-bold mb-6">Referral Dashboard</h2>
-            
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-              <Card className="dashboard-card col-span-2">
-                <CardHeader>
-                  <CardTitle className="flex items-center text-xl">
-                    <Share2 className="mr-2 h-5 w-5 text-svr-primary" />
-                    Share Your Referral Link
-                  </CardTitle>
-                  <CardDescription>
-                    Earn 5% of the staking rewards from users who join through your link
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-4">
-                    <div className="relative">
-                      <Input 
-                        value={referralData.referralLink} 
-                        readOnly 
-                        className="pr-20 bg-svr-primary/5"
-                      />
-                      <Button 
-                        className="absolute right-1 top-1 h-8" 
-                        onClick={() => copyToClipboard(referralData.referralLink)}
-                      >
-                        {copied ? (
-                          <><CheckCircle2 className="mr-1 h-4 w-4" /> Copied</>
-                        ) : (
-                          <><Copy className="mr-1 h-4 w-4" /> Copy</>
-                        )}
-                      </Button>
-                    </div>
-                    
-                    <div className="flex items-center justify-center gap-4">
-                      <Button 
-                        variant="outline" 
-                        className="flex-1 border-svr-primary/20" 
-                        onClick={shareViaTwitter}
-                      >
-                        <Twitter className="mr-2 h-4 w-4" /> Twitter
-                      </Button>
-                      <Button 
-                        variant="outline" 
-                        className="flex-1 border-svr-primary/20" 
-                        onClick={shareViaFacebook}
-                      >
-                        <Facebook className="mr-2 h-4 w-4" /> Facebook
-                      </Button>
-                      <Button 
-                        variant="outline" 
-                        className="flex-1 border-svr-primary/20" 
-                        onClick={shareViaEmail}
-                      >
-                        <Mail className="mr-2 h-4 w-4" /> Email
-                      </Button>
-                    </div>
-                    
-                    <div className="bg-svr-primary/5 p-4 rounded-lg">
-                      <p className="font-medium mb-2">Referral Code</p>
-                      <div className="flex items-center gap-2">
-                        <p className="text-lg font-bold font-mono tracking-wider">{referralData.referralCode}</p>
-                        <Button 
-                          variant="ghost" 
-                          size="icon"
-                          onClick={() => copyToClipboard(referralData.referralCode)}
-                        >
-                          <Copy className="h-4 w-4" />
-                        </Button>
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-              
-              <Card className="dashboard-card">
-                <CardHeader>
-                  <CardTitle className="flex items-center text-xl">
-                    <Wallet className="mr-2 h-5 w-5 text-svr-primary" />
-                    Referral Earnings
-                  </CardTitle>
-                  <CardDescription>
-                    Total earnings from your referrals
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="text-center mb-6">
-                    <p className="text-3xl font-bold text-svr-primary">{referralData.totalEarnings} SVR</p>
-                    <p className="text-sm text-muted-foreground">Lifetime earnings</p>
-                  </div>
-                  
-                  <div className="space-y-4">
-                    <div>
-                      <div className="flex justify-between text-sm mb-1">
-                        <span>Total Referrals</span>
-                        <span className="font-medium">{referralData.totalReferrals}</span>
-                      </div>
-                      <Progress value={(referralData.totalReferrals / 20) * 100} className="h-1.5" />
-                    </div>
-                    
-                    <div className="flex justify-between">
-                      <div className="text-center">
-                        <p className="text-lg font-bold text-svr-primary">{referralData.activeReferrals}</p>
-                        <p className="text-xs text-muted-foreground">Active</p>
-                      </div>
-                      <div className="text-center">
-                        <p className="text-lg font-bold text-svr-accent">{referralData.pendingReferrals}</p>
-                        <p className="text-xs text-muted-foreground">Pending</p>
-                      </div>
-                    </div>
-                    
-                    <div className="bg-svr-primary/10 p-3 rounded-lg">
-                      <p className="text-sm">Next Tier: <span className="font-medium">{referralData.nextTier.reward}</span></p>
-                      <div className="mt-2">
-                        <div className="flex justify-between text-xs mb-1">
-                          <span>{referralData.nextTier.current} referrals</span>
-                          <span>{referralData.nextTier.required} referrals</span>
-                        </div>
-                        <Progress 
-                          value={(referralData.nextTier.current / referralData.nextTier.required) * 100} 
-                          className="h-1" 
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
+        <main className="p-6 space-y-8">
+          <ReferralStats stats={referralData} />
           
-          {/* Recent Referrals */}
+          <Card className="dashboard-card">
+            <CardHeader>
+              <CardTitle className="flex items-center text-xl">
+                <Share2 className="mr-2 h-5 w-5 text-svr-primary" />
+                Share Your Referral Link
+              </CardTitle>
+              <CardDescription>
+                Earn 5% of the staking rewards from users who join through your link
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-4">
+                <div className="relative">
+                  <Input 
+                    value={referralData.referralLink} 
+                    readOnly 
+                    className="pr-20 bg-svr-primary/5 font-mono"
+                  />
+                  <Button 
+                    className="absolute right-1 top-1 h-8" 
+                    onClick={() => copyToClipboard(referralData.referralLink)}
+                  >
+                    {copied ? (
+                      <><CheckCircle2 className="mr-1 h-4 w-4" /> Copied</>
+                    ) : (
+                      <><Copy className="mr-1 h-4 w-4" /> Copy</>
+                    )}
+                  </Button>
+                </div>
+                
+                <div className="flex items-center justify-center gap-4">
+                  <Button 
+                    variant="outline" 
+                    className="flex-1 border-svr-primary/20" 
+                    onClick={() => shareViaTwitter()}
+                  >
+                    <Twitter className="mr-2 h-4 w-4" /> Twitter
+                  </Button>
+                  <Button 
+                    variant="outline" 
+                    className="flex-1 border-svr-primary/20" 
+                    onClick={() => shareViaFacebook()}
+                  >
+                    <Facebook className="mr-2 h-4 w-4" /> Facebook
+                  </Button>
+                  <Button 
+                    variant="outline" 
+                    className="flex-1 border-svr-primary/20" 
+                    onClick={() => shareViaEmail()}
+                  >
+                    <Mail className="mr-2 h-4 w-4" /> Email
+                  </Button>
+                </div>
+                
+                <div className="bg-svr-primary/5 p-4 rounded-lg">
+                  <p className="font-medium mb-2">Referral Code</p>
+                  <div className="flex items-center gap-2">
+                    <p className="text-lg font-bold font-mono tracking-wider">{referralData.referralCode}</p>
+                    <Button 
+                      variant="ghost" 
+                      size="icon"
+                      onClick={() => copyToClipboard(referralData.referralCode)}
+                    >
+                      <Copy className="h-4 w-4" />
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+          
           <div>
             <h3 className="text-xl font-bold mb-4">Recent Referrals</h3>
             <Card className="dashboard-card">
