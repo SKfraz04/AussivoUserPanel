@@ -35,7 +35,7 @@ const Stake = () => {
       apy: 6.5,
       duration: 12,
       minAmount: 2000,
-      description: "Specialized package with higher returns. Includes access to network data rewards."
+      description: "Specialized package with higher returns. Includes access to network data rewards.",  // Added the missing comma here
       isPopular: true
     },
     {
