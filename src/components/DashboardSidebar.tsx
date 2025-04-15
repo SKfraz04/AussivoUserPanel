@@ -1,3 +1,4 @@
+
 import { Link, useLocation } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 import {
@@ -7,7 +8,6 @@ import {
   BarChart3,
   Users,
   Vote,
-  CircleDollarSign,
   LogOut,
   Menu,
   X,

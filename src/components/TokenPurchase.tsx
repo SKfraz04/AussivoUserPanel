@@ -4,7 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ArrowRight, Coins, DollarSign, RefreshCw } from "lucide-react";
+import { ArrowRight, Coins, DollarSign, RefreshCw, ShieldCheck } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
 const networkFees = {
   bep20: 0.001,
@@ -16,6 +17,7 @@ const TokenPurchase = () => {
   const [amount, setAmount] = useState<number>(100);
   const [network, setNetwork] = useState<"bep20" | "trc20" | "sui">("bep20");
   const [calculating, setCalculating] = useState(false);
+  const { toast } = useToast();
 
   // Token price would come from API or contract in a real implementation
   const tokenPrice = 0.1; // $0.1 per SVR token
@@ -44,7 +46,10 @@ const TokenPurchase = () => {
     // Simulate API call
     setTimeout(() => {
       setCalculating(false);
-      // In a real app, you would have a success notification and redirect
+      toast({
+        title: "Purchase Successful",
+        description: `You've purchased ${calculateTokens().toFixed(2)} SVR tokens!`,
+      });
     }, 1500);
   };
   
@@ -93,6 +98,18 @@ const TokenPurchase = () => {
               <span className="text-lg font-bold text-svr-primary">
                 {calculateTokens().toFixed(2)} SVR
               </span>
+            </div>
+          </div>
+          
+          <div className="mt-6 p-3 border border-svr-primary/20 rounded-lg bg-svr-primary/5">
+            <div className="flex items-start">
+              <ShieldCheck className="text-svr-primary h-5 w-5 mr-2 flex-shrink-0 mt-0.5" />
+              <div>
+                <h4 className="text-sm font-medium">Secure Transaction</h4>
+                <p className="text-xs text-muted-foreground">
+                  All transactions are processed securely using smart contracts with automatic verification.
+                </p>
+              </div>
             </div>
           </div>
         </Tabs>

@@ -10,7 +10,9 @@ import {
   BadgePercent, 
   BadgeDollarSign,
   Info,
-  AlertCircle
+  AlertCircle,
+  ChevronRight,
+  ShieldCheck
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
@@ -50,7 +52,8 @@ const ICO = () => {
       startDate: "2025-03-01",
       endDate: "2025-04-30",
       minPurchase: 100,
-      maxPurchase: 50000
+      maxPurchase: 50000,
+      benefits: ["Early access to platform features", "Higher staking rewards", "Premium governance rights"]
     },
     {
       id: 2,
@@ -63,7 +66,8 @@ const ICO = () => {
       startDate: "2025-05-01",
       endDate: "2025-06-15",
       minPurchase: 50,
-      maxPurchase: 100000
+      maxPurchase: 100000,
+      benefits: ["Priority access to new staking packages", "Reduced platform fees"]
     },
     {
       id: 3,
@@ -76,7 +80,8 @@ const ICO = () => {
       startDate: "2025-06-16",
       endDate: "2025-07-31",
       minPurchase: 50,
-      maxPurchase: null
+      maxPurchase: null,
+      benefits: ["Early access to marketplace features"]
     },
     {
       id: 4,
@@ -89,7 +94,8 @@ const ICO = () => {
       startDate: "2025-08-01",
       endDate: "2025-09-30",
       minPurchase: 10,
-      maxPurchase: null
+      maxPurchase: null,
+      benefits: []
     }
   ];
   
@@ -108,9 +114,9 @@ const ICO = () => {
   const getStageStatusBadge = (status: string) => {
     switch(status) {
       case 'active':
-        return <span className="bg-green-600 px-2 py-0.5 text-xs rounded-full">Active</span>;
+        return <span className="bg-svr-primary px-2 py-0.5 text-xs rounded-full">Active</span>;
       case 'upcoming':
-        return <span className="bg-blue-600 px-2 py-0.5 text-xs rounded-full">Upcoming</span>;
+        return <span className="bg-svr-accent/80 px-2 py-0.5 text-xs rounded-full">Upcoming</span>;
       case 'completed':
         return <span className="bg-gray-600 px-2 py-0.5 text-xs rounded-full">Completed</span>;
       default:
@@ -143,6 +149,32 @@ const ICO = () => {
                 <Wallet className="h-4 w-4 text-svr-primary" />
                 <span className="font-medium">1,250 SVR</span>
                 <span className="text-xs text-muted-foreground">Available</span>
+              </div>
+            </div>
+            
+            {/* ICO Progress Bar */}
+            <div className="mt-6 bg-card border border-svr-primary/20 rounded-xl p-5">
+              <div className="flex justify-between mb-2">
+                <span className="text-sm font-medium">Total Progress: 13.5M / 100M SVR (13.5%)</span>
+                <span className="text-sm text-svr-primary font-medium">$1,225,000 raised</span>
+              </div>
+              <Progress value={13.5} className="h-3 mb-4" />
+              
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                {icoStages.map((stage, index) => (
+                  <div key={index} className="text-center">
+                    <div className="text-xs text-muted-foreground mb-1">{stage.name}</div>
+                    <div className="h-1.5 w-full bg-muted overflow-hidden rounded-full">
+                      <div 
+                        className={`h-full ${stage.status === 'active' ? 'bg-svr-primary' : stage.status === 'completed' ? 'bg-gray-600' : 'bg-svr-accent/50'}`} 
+                        style={{ width: `${(stage.sold / stage.allocation) * 100}%` }}
+                      />
+                    </div>
+                    <div className="text-xs mt-1">
+                      {((stage.sold / stage.allocation) * 100).toFixed(1)}%
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -204,7 +236,7 @@ const ICO = () => {
                 <div className="relative border-l border-svr-primary/30 pl-6 space-y-6">
                   {icoStages.map((stage, index) => (
                     <div key={index} className="relative">
-                      <div className={`absolute -left-[25px] h-4 w-4 rounded-full border ${stage.status === 'active' ? 'bg-green-600 animate-pulse' : stage.status === 'completed' ? 'bg-gray-600' : 'bg-blue-600'}`}></div>
+                      <div className={`absolute -left-[25px] h-4 w-4 rounded-full border ${stage.status === 'active' ? 'bg-svr-primary animate-pulse' : stage.status === 'completed' ? 'bg-gray-600' : 'bg-svr-accent/70'}`}></div>
                       <div className="flex justify-between mb-1">
                         <h4 className="font-medium">{stage.name}</h4>
                         {getStageStatusBadge(stage.status)}
@@ -228,8 +260,8 @@ const ICO = () => {
             <TabsContent value="stages" className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {stagesWithMetrics.map((stage) => (
-                  <Card key={stage.id} className={`dashboard-card overflow-hidden ${stage.status === 'active' ? 'border-green-600/50' : ''}`}>
-                    <div className={`h-1 ${stage.status === 'active' ? 'bg-green-600' : stage.status === 'completed' ? 'bg-gray-600' : 'bg-blue-600'}`}></div>
+                  <Card key={stage.id} className={`dashboard-card overflow-hidden ${stage.status === 'active' ? 'border-svr-primary' : ''}`}>
+                    <div className={`h-1 ${stage.status === 'active' ? 'bg-svr-primary' : stage.status === 'completed' ? 'bg-gray-600' : 'bg-svr-accent/80'}`}></div>
                     <CardHeader className="pb-2">
                       <div className="flex justify-between items-center">
                         <CardTitle>{stage.name}</CardTitle>
@@ -239,7 +271,7 @@ const ICO = () => {
                         <BadgeDollarSign className="h-4 w-4 mr-1" />
                         ${stage.price.toFixed(2)} per token
                         {stage.discount && (
-                          <span className="ml-2 text-green-500">{stage.discount}</span>
+                          <span className="ml-2 text-svr-primary">{stage.discount}</span>
                         )}
                       </CardDescription>
                     </CardHeader>
@@ -270,6 +302,23 @@ const ICO = () => {
                             <p>{stage.maxPurchase === null ? 'No limit' : `${stage.maxPurchase} SVR`}</p>
                           </div>
                         </div>
+                        
+                        {stage.benefits && stage.benefits.length > 0 && (
+                          <div className="mt-3 pt-3 border-t border-svr-primary/10">
+                            <h5 className="text-sm font-medium mb-2 flex items-center">
+                              <ShieldCheck className="h-3.5 w-3.5 mr-1.5 text-svr-primary" />
+                              Stage Benefits
+                            </h5>
+                            <ul className="space-y-1">
+                              {stage.benefits.map((benefit, i) => (
+                                <li key={i} className="text-xs text-muted-foreground flex items-start">
+                                  <ChevronRight className="h-3 w-3 mr-1 text-svr-primary flex-shrink-0 mt-0.5" />
+                                  {benefit}
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
                       </div>
                     </CardContent>
                     <CardFooter>
@@ -333,7 +382,7 @@ const ICO = () => {
                               </div>
                               <div className="text-right">
                                 <p className="font-bold">${stage.price.toFixed(2)}</p>
-                                {stage.discount && <p className="text-sm text-green-500">{stage.discount}</p>}
+                                {stage.discount && <p className="text-sm text-svr-primary">{stage.discount}</p>}
                               </div>
                             </div>
                           ))}

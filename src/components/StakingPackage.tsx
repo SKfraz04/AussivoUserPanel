@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { Clock, Check, Lock, ArrowRight, Info } from "lucide-react";
+import { Clock, Check, Lock, ArrowRight, Info, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface StakingPackageProps {
@@ -14,6 +14,7 @@ interface StakingPackageProps {
   description: string;
   className?: string;
   isPopular?: boolean;
+  features?: string[];
 }
 
 const StakingPackage = ({
@@ -23,7 +24,8 @@ const StakingPackage = ({
   minAmount,
   description,
   className,
-  isPopular = false
+  isPopular = false,
+  features = []
 }: StakingPackageProps) => {
   const [isConfirmOpen, setIsConfirmOpen] = useState(false);
   
@@ -59,6 +61,18 @@ const StakingPackage = ({
         </CardHeader>
         <CardContent className="p-6 pt-4">
           <p className="text-sm text-muted-foreground">{description}</p>
+          
+          {features && features.length > 0 && (
+            <div className="mt-4 space-y-2">
+              {features.map((feature, index) => (
+                <div key={index} className="flex items-start text-sm">
+                  <ChevronRight className="h-4 w-4 text-svr-primary mr-1.5 flex-shrink-0 mt-0.5" />
+                  <span>{feature}</span>
+                </div>
+              ))}
+            </div>
+          )}
+          
           <div className="mt-4 p-3 bg-svr-primary/5 rounded-lg">
             <div className="text-sm font-medium">Min. Stake Amount</div>
             <div className="text-lg font-bold">{minAmount} SVR</div>

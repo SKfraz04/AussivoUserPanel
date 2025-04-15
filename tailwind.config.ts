@@ -63,16 +63,16 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// SVR Staking Platform Custom Colors
+				// SVR Staking Platform Custom Colors - Updated to green theme
 				svr: {
-					primary: '#8B5CF6', // Main Purple
-					secondary: '#6E59A5', // Secondary Purple
-					dark: '#1A1F2C',    // Dark background
-					light: '#D6BCFA',   // Light purple
-					accent: '#0EA5E9',  // Bright blue accent
-					success: '#10B981', // Success green
-					warning: '#F97316', // Warning orange
-					danger: '#EF4444',  // Danger red
+					primary: '#10B981',    // Primary Green (from emerald-600)
+					secondary: '#059669',   // Darker Green (from emerald-700)
+					dark: '#1A221C',        // Dark background with green tint
+					light: '#D1FAE5',       // Light green
+					accent: '#34D399',      // Bright green accent (from emerald-400)
+					success: '#10B981',     // Success green (same as primary)
+					warning: '#F97316',     // Warning orange
+					danger: '#EF4444',      // Danger red
 				}
 			},
 			borderRadius: {
@@ -133,9 +133,9 @@ export default {
 			},
 			backgroundImage: {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-				'hero-pattern': 'linear-gradient(to right bottom, rgba(26, 31, 44, 0.8), rgba(26, 31, 44, 0.9)), url("/hero-bg.jpg")',
-				'card-gradient': 'linear-gradient(135deg, #8B5CF6 0%, #6E59A5 100%)',
-				'dark-gradient': 'linear-gradient(to right bottom, #1A1F2C, #2A303C)',
+				'hero-pattern': 'linear-gradient(to right bottom, rgba(26, 34, 28, 0.8), rgba(26, 34, 28, 0.9)), url("/hero-bg.jpg")',
+				'card-gradient': 'linear-gradient(135deg, #10B981 0%, #059669 100%)',
+				'dark-gradient': 'linear-gradient(to right bottom, #1A221C, #2A3C30)',
 			},
 		}
 	},
