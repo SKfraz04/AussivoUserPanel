@@ -11,7 +11,8 @@ import {
   LogOut,
   Menu,
   X,
-  BadgeDollarSign
+  BadgeDollarSign,
+  ShieldAlert
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
@@ -36,6 +37,7 @@ const DashboardSidebar = ({ onLogout }: SidebarProps) => {
     { name: 'Rewards', path: '/rewards', icon: BarChart3 },
     { name: 'Referrals', path: '/referrals', icon: Users },
     { name: 'Governance', path: '/governance', icon: Vote },
+    { name: 'Admin Panel', path: '/admin', icon: ShieldAlert },
   ];
 
   return (
