@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '@/components/Header';
@@ -13,13 +12,10 @@ const Landing = () => {
   const [walletAddress, setWalletAddress] = useState('');
 
   const handleWalletConnect = (walletId: string) => {
-    // In a real implementation, this would connect to the actual wallet
-    // and get the user's address from the wallet connection
     const mockAddress = '0x1234567890abcdef1234567890abcdef12345678';
     setWalletAddress(mockAddress);
     setIsAuthenticated(true);
     
-    // Navigate to dashboard after successful connection
     navigate('/dashboard');
   };
 
@@ -42,10 +38,10 @@ const Landing = () => {
           <div className="flex flex-col md:flex-row items-center gap-12">
             <div className="flex-1 text-center md:text-left">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                Stake <span className="gradient-text">SVR Tokens</span> For Optimal Yields
+                Stake <span className="gradient-text">Aussivo Tokens</span> For Optimal Yields
               </h1>
               <p className="mt-6 text-lg text-muted-foreground max-w-xl">
-                Secure, transparent, and high-yield staking platform with multiple packages and flexible lock-in periods.
+                Secure, transparent, and high-yield staking platform powered by Victor Development, offering flexible blockchain investment strategies.
               </p>
               <div className="mt-10 flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4">
                 <WalletConnect onConnect={handleWalletConnect} />
@@ -79,7 +75,6 @@ const Landing = () => {
                 </Button>
               </div>
               
-              {/* Decorative elements */}
               <div className="absolute -top-10 -left-10 w-64 h-64 bg-svr-primary opacity-10 rounded-full blur-3xl"></div>
               <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-svr-accent opacity-10 rounded-full blur-3xl"></div>
             </div>

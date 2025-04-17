@@ -34,7 +34,7 @@ const Header = ({ isAuthenticated = false, walletAddress = '', onLogout = () => 
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center gap-2">
           <Link to="/" className="flex items-center space-x-2">
-            <span className="text-2xl font-bold gradient-text">SVR</span>
+            <span className="text-2xl font-bold gradient-text">Aussivo</span>
             <span className="font-medium text-foreground">Staking</span>
           </Link>
           
