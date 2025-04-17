@@ -12,7 +12,20 @@ import {
   PackageIcon,
   LineChart,
   Bell,
-  Search
+  Search,
+  Check,
+  AlertTriangle,
+  X,
+  Edit,
+  ChevronRight,
+  Plus,
+  ArrowUpDown,
+  Percent,
+  Clock,
+  Award,
+  FileText,
+  Star,
+  PieChart
 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -33,6 +46,16 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
+import StatsCard from "@/components/StatsCard";
+import AdminUserModule from "@/components/admin/AdminUserModule";
+import AdminDepositsModule from "@/components/admin/AdminDepositsModule";
+import AdminTokenModule from "@/components/admin/AdminTokenModule";
+import AdminStakingModule from "@/components/admin/AdminStakingModule";
+import AdminReferralModule from "@/components/admin/AdminReferralModule";
+import AdminGovernanceModule from "@/components/admin/AdminGovernanceModule";
+import AdminRewardsModule from "@/components/admin/AdminRewardsModule";
+import AdminHistoryModule from "@/components/admin/AdminHistoryModule";
+import AdminAnalyticsModule from "@/components/admin/AdminAnalyticsModule";
 
 const AdminDashboard = () => {
   const [activeModule, setActiveModule] = useState("overview");
@@ -229,46 +252,34 @@ const AdminDashboard = () => {
                 </div>
 
                 <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-                  <Card>
-                    <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                      <CardTitle className="text-sm font-medium">Total Users</CardTitle>
-                      <Users className="h-4 w-4 text-muted-foreground" />
-                    </CardHeader>
-                    <CardContent>
-                      <div className="text-2xl font-bold">4,521</div>
-                      <p className="text-xs text-muted-foreground">+12% from last month</p>
-                    </CardContent>
-                  </Card>
-                  <Card>
-                    <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                      <CardTitle className="text-sm font-medium">Total Deposits</CardTitle>
-                      <Wallet className="h-4 w-4 text-muted-foreground" />
-                    </CardHeader>
-                    <CardContent>
-                      <div className="text-2xl font-bold">$1,234,567</div>
-                      <p className="text-xs text-muted-foreground">+22% from last month</p>
-                    </CardContent>
-                  </Card>
-                  <Card>
-                    <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                      <CardTitle className="text-sm font-medium">Active Stakes</CardTitle>
-                      <CoinsIcon className="h-4 w-4 text-muted-foreground" />
-                    </CardHeader>
-                    <CardContent>
-                      <div className="text-2xl font-bold">2,762</div>
-                      <p className="text-xs text-muted-foreground">+8% from last month</p>
-                    </CardContent>
-                  </Card>
-                  <Card>
-                    <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                      <CardTitle className="text-sm font-medium">Token Price</CardTitle>
-                      <BadgeDollarSign className="h-4 w-4 text-muted-foreground" />
-                    </CardHeader>
-                    <CardContent>
-                      <div className="text-2xl font-bold">$0.105</div>
-                      <p className="text-xs text-muted-foreground">+5.2% from last week</p>
-                    </CardContent>
-                  </Card>
+                  <StatsCard 
+                    title="Total Users" 
+                    value="4,521" 
+                    description="+12% from last month" 
+                    trend={{ value: "12%", isPositive: true }}
+                    icon={<Users className="h-4 w-4 text-primary" />}
+                  />
+                  <StatsCard 
+                    title="Total Deposits" 
+                    value="$1,234,567" 
+                    description="+22% from last month" 
+                    trend={{ value: "22%", isPositive: true }}
+                    icon={<Wallet className="h-4 w-4 text-primary" />}
+                  />
+                  <StatsCard 
+                    title="Active Stakes" 
+                    value="2,762" 
+                    description="+8% from last month" 
+                    trend={{ value: "8%", isPositive: true }}
+                    icon={<CoinsIcon className="h-4 w-4 text-primary" />}
+                  />
+                  <StatsCard 
+                    title="Token Price" 
+                    value="$0.105" 
+                    description="+5.2% from last week" 
+                    trend={{ value: "5.2%", isPositive: true }}
+                    icon={<BadgeDollarSign className="h-4 w-4 text-primary" />}
+                  />
                 </div>
 
                 {/* Recent Activity */}
@@ -367,78 +378,39 @@ const AdminDashboard = () => {
               </TabsContent>
 
               <TabsContent value="users">
-                <div>
-                  <h1 className="text-2xl font-bold tracking-tight">User & Wallet Management</h1>
-                  <p className="text-muted-foreground mb-6">Manage platform users and their wallets</p>
-                  <div className="p-8 text-center">
-                    <h3 className="text-muted-foreground">User management module placeholder</h3>
-                    <p className="text-sm text-muted-foreground">This area would contain a table of users with search, filter, and action buttons</p>
-                  </div>
-                </div>
+                <AdminUserModule />
               </TabsContent>
 
               <TabsContent value="deposits">
-                <div>
-                  <h1 className="text-2xl font-bold tracking-tight">Deposit & Transaction Monitoring</h1>
-                  <p className="text-muted-foreground mb-6">Track and manage all platform deposits and transactions</p>
-                  <div className="p-8 text-center">
-                    <h3 className="text-muted-foreground">Transaction monitoring module placeholder</h3>
-                    <p className="text-sm text-muted-foreground">This area would display transaction history with status indicators</p>
-                  </div>
-                </div>
+                <AdminDepositsModule />
               </TabsContent>
 
-              {/* Additional tab contents would be implemented similarly */}
               <TabsContent value="tokens">
-                <div>
-                  <h1 className="text-2xl font-bold tracking-tight">Token & Package Control</h1>
-                  <p className="text-muted-foreground mb-6">Manage token pricing and staking packages</p>
-                  <div className="p-8 text-center">
-                    <h3 className="text-muted-foreground">Token management module placeholder</h3>
-                  </div>
-                </div>
+                <AdminTokenModule />
               </TabsContent>
 
               <TabsContent value="staking">
-                <div>
-                  <h1 className="text-2xl font-bold tracking-tight">Staking & APY Configuration</h1>
-                  <p className="text-muted-foreground mb-6">Configure staking rates and APY for all packages</p>
-                </div>
+                <AdminStakingModule />
               </TabsContent>
 
               <TabsContent value="referrals">
-                <div>
-                  <h1 className="text-2xl font-bold tracking-tight">Referral & Leaderboard System</h1>
-                  <p className="text-muted-foreground mb-6">Manage referral bonuses and leaderboard settings</p>
-                </div>
+                <AdminReferralModule />
               </TabsContent>
 
               <TabsContent value="dao">
-                <div>
-                  <h1 className="text-2xl font-bold tracking-tight">Governance (DAO)</h1>
-                  <p className="text-muted-foreground mb-6">Manage platform governance and proposals</p>
-                </div>
+                <AdminGovernanceModule />
               </TabsContent>
 
               <TabsContent value="rewards">
-                <div>
-                  <h1 className="text-2xl font-bold tracking-tight">Rewards & Burn Control</h1>
-                  <p className="text-muted-foreground mb-6">Configure rewards distribution and token burning</p>
-                </div>
+                <AdminRewardsModule />
               </TabsContent>
 
               <TabsContent value="history">
-                <div>
-                  <h1 className="text-2xl font-bold tracking-tight">Staking History & Packages</h1>
-                  <p className="text-muted-foreground mb-6">View and manage user staking history and packages</p>
-                </div>
+                <AdminHistoryModule />
               </TabsContent>
 
               <TabsContent value="analytics">
-                <div>
-                  <h1 className="text-2xl font-bold tracking-tight">Reports & Analytics</h1>
-                  <p className="text-muted-foreground mb-6">Generate comprehensive platform reports and analytics</p>
-                </div>
+                <AdminAnalyticsModule />
               </TabsContent>
             </Tabs>
           </main>
