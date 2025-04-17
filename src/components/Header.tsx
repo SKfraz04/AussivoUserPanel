@@ -1,7 +1,7 @@
 
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { LogOut, Menu, X, ChevronDown } from 'lucide-react';
+import { LogOut, Menu, X, ChevronDown, ShieldAlert } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -26,10 +26,7 @@ const Header = ({ isAuthenticated = false, walletAddress = '', onLogout = () => 
   };
   
   const handleWalletConnect = (walletId: string) => {
-    // This would be implemented with actual wallet connection code
     console.log(`Connected with ${walletId}`);
-    // Simulate a successful wallet connection
-    // In a real implementation, you'd set the authenticated state based on the connection result
   };
 
   return (
@@ -56,6 +53,10 @@ const Header = ({ isAuthenticated = false, walletAddress = '', onLogout = () => 
             </Link>
             <Link to="/referrals" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
               Referrals
+            </Link>
+            <Link to="/admin" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors flex items-center">
+              <ShieldAlert className="mr-2 h-4 w-4" />
+              Admin
             </Link>
           </nav>
         </div>
@@ -106,6 +107,10 @@ const Header = ({ isAuthenticated = false, walletAddress = '', onLogout = () => 
                 </Link>
                 <Link to="/referrals" className="text-sm font-medium">
                   Referrals
+                </Link>
+                <Link to="/admin" className="text-sm font-medium flex items-center">
+                  <ShieldAlert className="mr-2 h-4 w-4" />
+                  Admin
                 </Link>
               </div>
             </SheetContent>
