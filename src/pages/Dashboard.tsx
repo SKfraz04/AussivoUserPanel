@@ -63,25 +63,25 @@ const Dashboard = () => {
                 <StatsCard
                   title="Total Balance"
                   value="$12,450.67"
-                  change="+12.3%"
+                  trend={{ value: "12.3%", isPositive: true }}
                   icon={<Wallet className="h-5 w-5 text-svr-primary" />}
                 />
                 <StatsCard
                   title="Staking Rewards"
                   value="$3,425.89"
-                  change="+8.1%"
+                  trend={{ value: "8.1%", isPositive: true }}
                   icon={<TrendingUp className="h-5 w-5 text-svr-primary" />}
                 />
                 <StatsCard
                   title="Referral Earnings"
                   value="$892.34"
-                  change="+15.7%"
+                  trend={{ value: "15.7%", isPositive: true }}
                   icon={<Users className="h-5 w-5 text-svr-primary" />}
                 />
                 <StatsCard
                   title="Total Earned"
                   value="$16,768.90"
-                  change="+10.2%"
+                  trend={{ value: "10.2%", isPositive: true }}
                   icon={<DollarSign className="h-5 w-5 text-svr-primary" />}
                 />
               </div>
