@@ -1,7 +1,6 @@
-
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { LogOut, Menu, X, ChevronDown, ShieldAlert } from 'lucide-react';
+import { LogOut, Menu, X, ChevronDown, ShieldAlert, CreditCard } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -41,6 +40,10 @@ const Header = ({ isAuthenticated = false, walletAddress = '', onLogout = () => 
           <nav className="hidden md:flex items-center space-x-4 ml-6">
             <Link to="/dashboard" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
               Dashboard
+            </Link>
+            <Link to="/wallet" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors flex items-center">
+              <CreditCard className="mr-1 h-4 w-4" />
+              Wallet
             </Link>
             <Link to="/ico" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
               Token Sale
@@ -95,6 +98,10 @@ const Header = ({ isAuthenticated = false, walletAddress = '', onLogout = () => 
               <div className="flex flex-col space-y-4 mt-8">
                 <Link to="/dashboard" className="text-sm font-medium">
                   Dashboard
+                </Link>
+                <Link to="/wallet" className="text-sm font-medium flex items-center">
+                  <CreditCard className="mr-2 h-4 w-4" />
+                  Wallet
                 </Link>
                 <Link to="/ico" className="text-sm font-medium">
                   Token Sale
