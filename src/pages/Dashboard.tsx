@@ -64,25 +64,25 @@ const Dashboard = () => {
                   title="Total Balance"
                   value="$12,450.67"
                   change="+12.3%"
-                  icon={Wallet}
+                  icon={<Wallet className="h-5 w-5 text-svr-primary" />}
                 />
                 <StatsCard
                   title="Staking Rewards"
                   value="$3,425.89"
                   change="+8.1%"
-                  icon={TrendingUp}
+                  icon={<TrendingUp className="h-5 w-5 text-svr-primary" />}
                 />
                 <StatsCard
                   title="Referral Earnings"
                   value="$892.34"
                   change="+15.7%"
-                  icon={Users}
+                  icon={<Users className="h-5 w-5 text-svr-primary" />}
                 />
                 <StatsCard
                   title="Total Earned"
                   value="$16,768.90"
                   change="+10.2%"
-                  icon={DollarSign}
+                  icon={<DollarSign className="h-5 w-5 text-svr-primary" />}
                 />
               </div>
 
