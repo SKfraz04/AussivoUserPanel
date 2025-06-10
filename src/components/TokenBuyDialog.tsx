@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -125,7 +124,7 @@ const TokenBuyDialog = ({ open, onOpenChange, stageId, stageName, stagePrice, st
             {/* Stage Info */}
             <div className="bg-svr-primary/10 p-4 rounded-lg">
               <div className="flex justify-between items-center mb-2">
-                <span className="font-medium">Current Stage: {stageName}</span>
+                <span className="font-medium text-foreground">Current Stage: {stageName}</span>
                 {stageDiscount && (
                   <span className="bg-green-500 text-white px-2 py-1 rounded-full text-xs">
                     {stageDiscount}
@@ -149,7 +148,7 @@ const TokenBuyDialog = ({ open, onOpenChange, stageId, stageName, stagePrice, st
               {network !== "ramper" ? (
                 <TabsContent value={network} className="space-y-4">
                   <div>
-                    <label className="text-sm font-medium block mb-2">Amount to Invest</label>
+                    <label className="text-sm font-medium block mb-2 text-foreground">Amount to Invest</label>
                     <div className="relative">
                       <DollarSign className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                       <Input
@@ -166,28 +165,28 @@ const TokenBuyDialog = ({ open, onOpenChange, stageId, stageName, stagePrice, st
                     </p>
                   </div>
                   
-                  <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg space-y-3">
-                    <h4 className="font-medium">Purchase Summary</h4>
+                  <div className="bg-card border border-border p-4 rounded-lg space-y-3">
+                    <h4 className="font-medium text-foreground">Purchase Summary</h4>
                     <div className="space-y-2 text-sm">
                       <div className="flex justify-between">
-                        <span>Investment Amount</span>
-                        <span>${amount.toFixed(2)}</span>
+                        <span className="text-foreground">Investment Amount</span>
+                        <span className="text-foreground">${amount.toFixed(2)}</span>
                       </div>
                       <div className="flex justify-between">
-                        <span>Token Price</span>
-                        <span>${stagePrice} / SVR</span>
+                        <span className="text-foreground">Token Price</span>
+                        <span className="text-foreground">${stagePrice} / SVR</span>
                       </div>
                       <div className="flex justify-between">
-                        <span>Network Fee</span>
-                        <span>{networkFees[network]} {network === "sui" ? "SUI" : "USDT"}</span>
+                        <span className="text-foreground">Network Fee</span>
+                        <span className="text-foreground">{networkFees[network]} {network === "sui" ? "SUI" : "USDT"}</span>
                       </div>
                       <Separator />
                       <div className="flex justify-between">
-                        <span>Total Cost</span>
-                        <span className="font-medium">{calculateTotal()} {network === "sui" ? "SUI" : "USDT"}</span>
+                        <span className="text-foreground">Total Cost</span>
+                        <span className="font-medium text-foreground">{calculateTotal()} {network === "sui" ? "SUI" : "USDT"}</span>
                       </div>
                       <div className="flex justify-between pt-2 border-t">
-                        <span className="font-medium">You will receive</span>
+                        <span className="font-medium text-foreground">You will receive</span>
                         <span className="text-lg font-bold text-svr-primary">
                           {calculateTokens().toFixed(2)} SVR
                         </span>
@@ -200,7 +199,7 @@ const TokenBuyDialog = ({ open, onOpenChange, stageId, stageName, stagePrice, st
                   <div className="bg-svr-primary/5 p-4 rounded-lg">
                     <div className="flex items-center mb-3">
                       <CreditCard className="h-5 w-5 text-svr-primary mr-2" />
-                      <h3 className="font-medium">Buy with Credit Card</h3>
+                      <h3 className="font-medium text-foreground">Buy with Credit Card</h3>
                     </div>
                     <p className="text-sm text-muted-foreground mb-4">
                       Purchase SVR tokens directly with your credit card through our secure Ramper integration.
@@ -208,15 +207,15 @@ const TokenBuyDialog = ({ open, onOpenChange, stageId, stageName, stagePrice, st
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
                       <div className="bg-svr-primary/10 p-3 rounded-lg text-center">
                         <ArrowRight className="h-4 w-4 text-svr-primary mx-auto mb-1" />
-                        <span className="text-xs">100+ countries</span>
+                        <span className="text-xs text-foreground">100+ countries</span>
                       </div>
                       <div className="bg-svr-primary/10 p-3 rounded-lg text-center">
                         <ShieldCheck className="h-4 w-4 text-svr-primary mx-auto mb-1" />
-                        <span className="text-xs">Secure payments</span>
+                        <span className="text-xs text-foreground">Secure payments</span>
                       </div>
                       <div className="bg-svr-primary/10 p-3 rounded-lg text-center">
                         <Clock className="h-4 w-4 text-svr-primary mx-auto mb-1" />
-                        <span className="text-xs">Instant delivery</span>
+                        <span className="text-xs text-foreground">Instant delivery</span>
                       </div>
                     </div>
                   </div>
