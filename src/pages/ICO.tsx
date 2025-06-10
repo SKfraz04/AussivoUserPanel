@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import DashboardSidebar from '@/components/DashboardSidebar';
@@ -26,6 +25,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import TokenPurchase from '@/components/TokenPurchase';
 import TokenSaleStatus from '@/components/TokenSaleStatus';
+import TokenPurchaseHistory from '@/components/TokenPurchaseHistory';
 import Countdown from '@/components/Countdown';
 import { useToast } from '@/hooks/use-toast';
 
@@ -273,9 +273,10 @@ const ICO = () => {
           </div>
 
           <Tabs defaultValue="stages" className="w-full">
-            <TabsList className="grid w-full grid-cols-3 mb-8">
+            <TabsList className="grid w-full grid-cols-4 mb-8">
               <TabsTrigger value="stages">ICO Stages</TabsTrigger>
               <TabsTrigger value="buy">Buy Tokens</TabsTrigger>
+              <TabsTrigger value="history">Purchase History</TabsTrigger>
               <TabsTrigger value="tokenomics">Tokenomics</TabsTrigger>
             </TabsList>
             
@@ -369,6 +370,10 @@ const ICO = () => {
                   </div>
                 </div>
               </div>
+            </TabsContent>
+
+            <TabsContent value="history" className="space-y-6">
+              <TokenPurchaseHistory />
             </TabsContent>
             
             <TabsContent value="tokenomics" className="space-y-6">
