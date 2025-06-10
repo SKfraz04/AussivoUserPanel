@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import DashboardSidebar from '@/components/DashboardSidebar';
+import TokenBuyDialog from '@/components/TokenBuyDialog';
 import { 
   Bell, 
   Wallet, 
@@ -34,6 +35,7 @@ const ICO = () => {
   const { toast } = useToast();
   const [activeStage, setActiveStage] = useState<number>(1);
   const [highlightedStage, setHighlightedStage] = useState<number | null>(null);
+  const [buyDialogOpen, setBuyDialogOpen] = useState(false);
 
   const handleLogout = () => {
     navigate('/');
@@ -41,6 +43,7 @@ const ICO = () => {
 
   const handleBuyNow = (stageId: number) => {
     setActiveStage(stageId);
+    setBuyDialogOpen(true);
     toast({
       title: "Stage Selected",
       description: `Now purchasing tokens at Stage ${stageId} rates`,
@@ -136,6 +139,8 @@ const ICO = () => {
   const totalAllocation = icoStages.reduce((acc, stage) => acc + stage.allocation, 0);
   const totalPercentSold = (totalSold / totalAllocation) * 100;
   const totalRaised = icoStages.reduce((acc, stage) => acc + (stage.sold * stage.price), 0);
+
+  const currentStage = icoStages.find(s => s.id === activeStage);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-svr-dark to-svr-dark/90">
@@ -526,6 +531,16 @@ const ICO = () => {
           </Tabs>
         </main>
       </div>
+
+      {/* Token Buy Dialog */}
+      <TokenBuyDialog
+        open={buyDialogOpen}
+        onOpenChange={setBuyDialogOpen}
+        stageId={activeStage}
+        stageName={currentStage?.name || ""}
+        stagePrice={currentStage?.price || 0.05}
+        stageDiscount={currentStage?.discount}
+      />
     </div>
   );
 };
