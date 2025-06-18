@@ -34,15 +34,13 @@ const Header = ({ isAuthenticated = false, walletAddress = '', onLogout = () => 
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center gap-2">
           <Link to="/" className="flex items-center space-x-2">
-            <img src={Logo} alt="Aussivo" className="h-10 w-10" />
+            <img src={Logo} alt="Aussivo" className="h-12 w-12" />
           </Link>
-          
           <nav className="hidden md:flex items-center space-x-4 ml-6">
             <Link to="/dashboard" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
               Dashboard
             </Link>
             <Link to="/wallet" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors flex items-center">
-              <CreditCard className="mr-1 h-4 w-4" />
               Wallet
             </Link>
             <Link to="/ico" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
