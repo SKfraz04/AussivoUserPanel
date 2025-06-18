@@ -83,7 +83,7 @@ const StakingPackage = ({
             onClick={() => setIsConfirmOpen(true)} 
             className={cn(
               "w-full",
-              isPopular ? "bg-svr-primary hover:bg-svr-primary/90" : ""
+              isPopular ? " bg-gradient-to-r from-svr-primary to-svr-secondary hover:brightness-110 transition-all duration-300" : " bg-gradient-to-r from-svr-primary to-svr-secondary hover:brightness-110 transition-all duration-300"
             )}
           >
             Stake Now <ArrowRight className="ml-2 h-4 w-4" />

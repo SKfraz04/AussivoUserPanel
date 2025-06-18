@@ -45,7 +45,7 @@ const Landing = () => {
               </p>
               <div className="mt-10 flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4">
                 <WalletConnect onConnect={handleWalletConnect} />
-                <Button variant="outline" className="border-svr-primary/30">
+                <Button variant="outline" className="border-svr-primary/30 bg-gradient-to-r from-svr-primary to-svr-secondary hover:brightness-110 transition-all duration-300">
                   Learn More <ChevronDown className="ml-2 h-4 w-4" />
                 </Button>
               </div>
@@ -163,7 +163,7 @@ const Landing = () => {
           </div>
           
           <div className="text-center mt-12">
-            <Button size="lg" onClick={() => navigate('/stake')}>
+            <Button size="lg" className="bg-gradient-to-r from-svr-primary to-svr-secondary hover:brightness-110 transition-all duration-300" onClick={() => navigate('/stake')}>
               View All Staking Options <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </div>
