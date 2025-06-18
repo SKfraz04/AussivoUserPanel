@@ -11,6 +11,7 @@ import {
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
 import WalletConnect from './WalletConnect';
+import Logo from '../assets/Images/logo.svg';
 
 interface HeaderProps {
   isAuthenticated?: boolean;
@@ -33,8 +34,7 @@ const Header = ({ isAuthenticated = false, walletAddress = '', onLogout = () => 
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center gap-2">
           <Link to="/" className="flex items-center space-x-2">
-            <span className="text-2xl font-bold gradient-text">Aussivo</span>
-            <span className="font-medium text-foreground">Staking</span>
+            <img src={Logo} alt="Aussivo" className="h-10 w-10" />
           </Link>
           
           <nav className="hidden md:flex items-center space-x-4 ml-6">
