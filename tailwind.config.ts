@@ -63,14 +63,14 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// SVR Staking Platform Custom Colors - Updated to green theme
+				// SVR Staking Platform Custom Colors - Updated to gradient theme
 				svr: {
-					primary: '#10B981',    // Primary Green (from emerald-600)
+					primary: '#0AD25A',    // Primary Green (from gradient start)
 					secondary: '#059669',   // Darker Green (from emerald-700)
 					dark: '#1A221C',        // Dark background with green tint
 					light: '#D1FAE5',       // Light green
-					accent: '#34D399',      // Bright green accent (from emerald-400)
-					success: '#10B981',     // Success green (same as primary)
+					accent: '#1ECBE1',      // Cyan accent (from gradient end)
+					success: '#10B981',     // Success green
 					warning: '#F97316',     // Warning orange
 					danger: '#EF4444',      // Danger red
 				}
