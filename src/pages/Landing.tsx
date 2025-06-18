@@ -70,7 +70,7 @@ const Landing = () => {
                     </div>
                   ))}
                 </div>
-                <Button className="w-full mt-6" onClick={() => navigate('/stake')}>
+                <Button className="w-full mt-6  bg-gradient-to-r from-svr-primary to-svr-secondary hover:brightness-110 transition-all duration-300" onClick={() => navigate('/stake')}>
                   View All Packages <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </div>
