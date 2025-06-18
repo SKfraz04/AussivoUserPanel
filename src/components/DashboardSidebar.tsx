@@ -11,7 +11,6 @@ import {
   Menu,
   X,
   BadgeDollarSign,
-  ShieldAlert,
   CreditCard
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -38,7 +37,6 @@ const DashboardSidebar = ({ onLogout }: SidebarProps) => {
     { name: 'Rewards', path: '/rewards', icon: BarChart3 },
     { name: 'Referrals', path: '/referrals', icon: Users },
     { name: 'Governance', path: '/governance', icon: Vote },
-    { name: 'Admin Panel', path: '/admin', icon: ShieldAlert },
   ];
 
   return (

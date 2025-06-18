@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { LogOut, Menu, X, ChevronDown, ShieldAlert, CreditCard } from 'lucide-react';
+import { LogOut, Menu, X, ChevronDown, CreditCard } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -57,10 +57,6 @@ const Header = ({ isAuthenticated = false, walletAddress = '', onLogout = () => 
             <Link to="/referrals" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
               Referrals
             </Link>
-            <Link to="/admin" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors flex items-center">
-              <ShieldAlert className="mr-2 h-4 w-4" />
-              Admin
-            </Link>
           </nav>
         </div>
 
@@ -114,10 +110,6 @@ const Header = ({ isAuthenticated = false, walletAddress = '', onLogout = () => 
                 </Link>
                 <Link to="/referrals" className="text-sm font-medium">
                   Referrals
-                </Link>
-                <Link to="/admin" className="text-sm font-medium flex items-center">
-                  <ShieldAlert className="mr-2 h-4 w-4" />
-                  Admin
                 </Link>
               </div>
             </SheetContent>

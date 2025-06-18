@@ -14,7 +14,6 @@ import Rewards from "./pages/Rewards";
 import Referrals from "./pages/Referrals";
 import Ranks from "./pages/Ranks";
 import Wallet from "./pages/Wallet";
-import AdminDashboard from "./pages/Admin";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -35,7 +34,6 @@ const App = () => (
           <Route path="/referrals" element={<Referrals />} />
           <Route path="/ranks" element={<Ranks />} />
           <Route path="/wallet" element={<Wallet />} />
-          <Route path="/admin" element={<AdminDashboard />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
