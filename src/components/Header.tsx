@@ -9,24 +9,31 @@ import {
   DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { useActiveAccount, useSetActiveWallet } from "thirdweb/react";
 
 import WalletConnect from './WalletConnect';
 import Logo from '../assets/Images/logo.svg';
 
-interface HeaderProps {
-  isAuthenticated?: boolean;
-  walletAddress?: string;
-  onLogout?: () => void;
-}
+const Header = () => {
+  const account = useActiveAccount();
+  const setActiveWallet = useSetActiveWallet();
 
-const Header = ({ isAuthenticated = false, walletAddress = '', onLogout = () => {} }: HeaderProps) => {
-  const truncateAddress = (address: string) => {
+  const truncateAddress = (address) => {
     if (!address) return '';
     return `${address.substring(0, 6)}...${address.substring(address.length - 4)}`;
   };
   
-  const handleWalletConnect = (walletId: string) => {
-    console.log(`Connected with ${walletId}`);
+  const handleWalletConnect = (address) => {
+    console.log(`Connected with ${address}`);
+  };
+
+  const handleDisconnect = () => {
+    try {
+      // Reload the page to reset the wallet state
+      window.location.reload();
+    } catch (error) {
+      console.error("Failed to disconnect wallet:", error);
+    }
   };
 
   return (
@@ -59,18 +66,18 @@ const Header = ({ isAuthenticated = false, walletAddress = '', onLogout = () => 
         </div>
 
         <div className="flex items-center gap-2">
-          {isAuthenticated ? (
+          {account ? (
             <>
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button variant="outline" className="border-svr-primary/30 flex items-center gap-2">
                     <div className="h-2 w-2 rounded-full bg-svr-success animate-pulse" />
-                    <span>{truncateAddress(walletAddress)}</span>
+                    <span>{truncateAddress(account.address)}</span>
                     <ChevronDown className="h-4 w-4" />
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end" className="dark-card border-svr-primary/20">
-                  <DropdownMenuItem onClick={onLogout} className="text-svr-danger flex items-center gap-2">
+                  <DropdownMenuItem onClick={handleDisconnect} className="text-svr-danger flex items-center gap-2">
                     <LogOut className="h-4 w-4" />
                     <span>Disconnect</span>
                   </DropdownMenuItem>

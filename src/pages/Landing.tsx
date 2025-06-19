@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import WalletConnect from '@/components/WalletConnect';
 import StakingPackage from '@/components/StakingPackage';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Shield, Landmark, Zap, Award, ChevronDown } from 'lucide-react';
+import { useActiveAccount } from "thirdweb/react";
 import Banner from '../assets/Images/banner.png';
 import Hand from '../assets/Images/Hand.png';
 import Logo from '../assets/Images/logo.svg';
@@ -12,13 +13,25 @@ const Landing = () => {
   const navigate = useNavigate();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [walletAddress, setWalletAddress] = useState('');
+  const account = useActiveAccount();
 
-  const handleWalletConnect = (walletId: string) => {
-    const mockAddress = '0x1234567890abcdef1234567890abcdef12345678';
-    setWalletAddress(mockAddress);
+  // Watch for account changes
+  useEffect(() => {
+    if (account && account.address) {
+      setWalletAddress(account.address);
     setIsAuthenticated(true);
-    
+      // navigate('/dashboard');
+    } else {
+      setIsAuthenticated(false);
+      setWalletAddress('');
+    }
+  }, [account, navigate]);
+
+  const handleWalletConnect = (address: string) => {
     navigate('/dashboard');
+
+    // This is now handled by the useEffect above
+    // but we keep it for compatibility
   };
 
   const handleLogout = () => {
@@ -28,11 +41,7 @@ const Landing = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#000000]">
-      <Header 
-        isAuthenticated={isAuthenticated}
-        walletAddress={walletAddress}
-        onLogout={handleLogout}
-      />
+      <Header />
 
         <img src={Banner} alt="Aussivo" className="absolute top-0 left-0 w-full h-full object-cover" />
         <section className="py-20 relative overflow-hidden">
@@ -325,7 +334,7 @@ const Landing = () => {
                   </li>
                 ))}
               </ul>
-            </div>
+              </div>
 
             {/* Information Column */}
             <div>
@@ -349,7 +358,7 @@ const Landing = () => {
                 ))}
               </ul>
             </div>
-
+            
             {/* Company Column */}
             <div>
               <h3 className="text-white font-semibold text-lg mb-6">Company</h3>
@@ -367,7 +376,7 @@ const Landing = () => {
                 ))}
               </ul>
             </div>
-
+            
             {/* Support Column */}
             <div>
               <h3 className="text-white font-semibold text-lg mb-6">Support</h3>
@@ -387,7 +396,7 @@ const Landing = () => {
               </ul>
             </div>
           </div>
-
+          
           {/* Bottom section */}
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 pt-8 border-t border-svr-primary/10">
             {/* Logo and Payment methods */}
