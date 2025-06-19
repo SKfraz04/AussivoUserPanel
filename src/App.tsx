@@ -34,7 +34,6 @@ const App = () => (
           <Route path="/referrals" element={<Referrals />} />
           <Route path="/ranks" element={<Ranks />} />
           <Route path="/wallet" element={<Wallet />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

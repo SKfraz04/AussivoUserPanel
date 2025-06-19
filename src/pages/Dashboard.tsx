@@ -19,6 +19,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import Header from '@/components/Header';
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -29,16 +30,17 @@ const Dashboard = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-svr-dark to-svr-dark/90">
-      <DashboardSidebar onLogout={handleLogout} />
+      {/* <DashboardSidebar onLogout={handleLogout} /> */}
+        <Header isAuthenticated={true} walletAddress={''} onLogout={handleLogout} />
       
-      <div className="lg:pl-64">
+      <div className="container">
         {/* Top bar */}
-        <div className="p-4 border-b border-svr-primary/20 backdrop-blur-sm flex justify-between items-center">
+        {/* <div className="p-4 border-b border-svr-primary/20 backdrop-blur-sm flex justify-between items-center">
           <h1 className="text-xl font-bold">Dashboard</h1>
           <Button variant="outline" size="icon" className="border-svr-primary/20">
             <Bell className="h-4 w-4" />
           </Button>
-        </div>
+        </div> */}
         
         {/* Main content */}
         <main className="p-6">

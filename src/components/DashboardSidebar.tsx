@@ -29,14 +29,8 @@ const DashboardSidebar = ({ onLogout }: SidebarProps) => {
   };
   
   const navItems = [
-    { name: 'Dashboard', path: '/dashboard', icon: LayoutDashboard },
-    { name: 'Wallet', path: '/wallet', icon: CreditCard },
     { name: 'Deposit', path: '/deposit', icon: Wallet },
-    { name: 'Token Sale', path: '/ico', icon: BadgeDollarSign },
-    { name: 'Staking', path: '/stake', icon: CoinsIcon },
-    { name: 'Rewards', path: '/rewards', icon: BarChart3 },
-    { name: 'Referrals', path: '/referrals', icon: Users },
-    { name: 'Governance', path: '/governance', icon: Vote },
+
   ];
 
   return (

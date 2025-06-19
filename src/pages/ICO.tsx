@@ -29,6 +29,7 @@ import TokenSaleStatus from '@/components/TokenSaleStatus';
 import TokenPurchaseHistory from '@/components/TokenPurchaseHistory';
 import Countdown from '@/components/Countdown';
 import { useToast } from '@/hooks/use-toast';
+import Header from '@/components/Header';
 
 const ICO = () => {
   const navigate = useNavigate();
@@ -144,16 +145,16 @@ const ICO = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-svr-dark to-svr-dark/90">
-      <DashboardSidebar onLogout={handleLogout} />
-      
-      <div className="lg:pl-64">
+      {/* <DashboardSidebar onLogout={handleLogout} /> */}
+      <Header isAuthenticated={true} walletAddress={''} onLogout={handleLogout} />
+      <div className="container">
         {/* Top bar */}
-        <div className="p-4 border-b border-svr-primary/20 backdrop-blur-sm flex justify-between items-center">
+        {/* <div className="p-4 border-b border-svr-primary/20 backdrop-blur-sm flex justify-between items-center">
           <h1 className="text-xl font-bold">SVR Token Sale</h1>
           <Button variant="outline" size="icon" className="border-svr-primary/20">
             <Bell className="h-4 w-4" />
           </Button>
-        </div>
+        </div> */}
         
         {/* Main content */}
         <main className="p-6">

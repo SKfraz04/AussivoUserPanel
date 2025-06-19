@@ -6,6 +6,7 @@ import WalletMenu from '@/components/WalletMenu';
 import { Bell } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import Header from '@/components/Header';
 
 const Wallet = () => {
   const navigate = useNavigate();
@@ -34,11 +35,11 @@ const Wallet = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-svr-dark to-svr-dark/90">
-      <DashboardSidebar onLogout={handleLogout} />
-      
-      <div className="lg:pl-64">
+      {/* <DashboardSidebar onLogout={handleLogout} /> */}
+      <Header isAuthenticated={true} walletAddress={''} onLogout={handleLogout} />
+      <div className="container">
         {/* Client Panel Header */}
-        <div className="p-4 border-b border-svr-primary/20 backdrop-blur-sm">
+        {/* <div className="p-4 border-b border-svr-primary/20 backdrop-blur-sm">
           <div className="flex justify-between items-center">
             <div>
               <h1 className="text-2xl font-bold gradient-text">Client Wallet Panel</h1>
@@ -48,7 +49,7 @@ const Wallet = () => {
               <Bell className="h-4 w-4" />
             </Button>
           </div>
-        </div>
+        </div> */}
         
         {/* Client Panel Content */}
         <main className="p-6">
