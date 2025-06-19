@@ -14,6 +14,8 @@ const wallets = [
 ];
 
 // Wallet display information
+// Note: TronLink requires separate integration using @tronweb3/tronwallet-adapters
+// as it operates on TRON blockchain which is not EVM-compatible
 const WALLET_INFO = [
   { 
     id: 'io.metamask', 
@@ -32,6 +34,13 @@ const WALLET_INFO = [
     name: 'WalletConnect', 
     icon: '🔗',
     description: 'Connect using WalletConnect protocol'
+  },
+  { 
+    id: 'tronlink', 
+    name: 'TronLink', 
+    icon: '⚡',
+    description: 'TRON blockchain wallet (requires separate integration)',
+    disabled: true
   }
 ];
 
@@ -49,6 +58,13 @@ const WalletConnect = ({ onConnect }: WalletConnectProps) => {
   const handleWalletSelect = async (walletId: string) => {
     try {
       setIsConnecting(true);
+      
+      // Handle TronLink separately as it requires different integration
+      if (walletId === 'tronlink') {
+        alert('TronLink integration requires a separate implementation using @tronweb3/tronwallet-adapters package for TRON blockchain. This would need to be implemented alongside the current EVM wallet integration.');
+        return;
+      }
+      
       const selectedWallet = wallets.find(w => w.id === walletId);
       if (!selectedWallet) return;
 
@@ -109,15 +125,17 @@ const WalletConnect = ({ onConnect }: WalletConnectProps) => {
               <button
                 key={wallet.id}
                 onClick={() => handleWalletSelect(wallet.id)}
-                disabled={isConnecting}
-                className="wallet-button group"
+                disabled={isConnecting || wallet.disabled}
+                className={`wallet-button group ${wallet.disabled ? 'opacity-50 cursor-not-allowed' : ''}`}
               >
                 <span className="text-2xl mr-3">{wallet.icon}</span>
                 <div className="flex-1 text-left">
                   <div className="font-medium">{wallet.name}</div>
                   <div className="text-xs text-muted-foreground">{wallet.description}</div>
                 </div>
-                {isConnecting ? (
+                {wallet.disabled ? (
+                  <div className="text-xs text-muted-foreground">Coming Soon</div>
+                ) : isConnecting ? (
                   <div className="h-5 w-5 rounded-full border-2 border-svr-primary/30 border-t-svr-primary animate-spin" />
                 ) : (
                   <ArrowRight className="h-4 w-4 text-svr-primary opacity-0 group-hover:opacity-100 transition-opacity" />
