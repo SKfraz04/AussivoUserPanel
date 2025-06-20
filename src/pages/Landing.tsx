@@ -10,6 +10,9 @@ import Banner from '../assets/Images/banner.png';
 import Hand from '../assets/Images/Hand.png';
 import Logo from '../assets/Images/logo.svg';
 import BG from '../assets/Images/BG.png';
+import Lp1 from '../assets/Images/Lp1.png';
+import Lp2 from '../assets/Images/Lp2.png';
+import Lp3 from '../assets/Images/Lp3.png';
 const Landing = () => {
   const navigate = useNavigate();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -28,7 +31,7 @@ const Landing = () => {
     }
   }, [account, navigate]);
 
-  const handleWalletConnect = (address: string) => {
+  const handleWalletConnect = (address) => {
     navigate('/dashboard');
 
     // This is now handled by the useEffect above
@@ -191,7 +194,7 @@ const Landing = () => {
           <div className="relative mt-32 py-20">
             {/* Background gradient effects */}
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-green-900/5 to-transparent"></div>
-            
+
             <div className="relative z-10 text-center mb-16">
               <p className="text-gray-400 text-sm mb-4">Why Choose Aussivo?</p>
               <h2 className="text-4xl md:text-5xl font-bold text-white">
@@ -207,33 +210,19 @@ const Landing = () => {
             <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
               {/* High-Yield Staking Card */}
               <div className="bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-2xl overflow-hidden group hover:border-green-500/30 transition-all duration-300">
-                <div className="h-64 bg-gradient-to-br from-green-600/20 to-yellow-600/20 p-8 flex items-center justify-center">
-                  {/* Chart visualization placeholder */}
+              <div className="h-64  flex items-center justify-center">
                   <div className="relative w-full h-full">
-                    <div className="absolute bottom-0 left-0 w-full flex items-end justify-between gap-2">
-                      {[40, 55, 35, 70, 45, 80, 60, 90, 75, 95, 85, 100].map((height, i) => (
-                        <div
-                          key={i}
-                          className="flex-1 bg-gradient-to-t from-green-500 to-yellow-500 rounded-t"
-                          style={{ height: `${height}%`, opacity: 0.8 }}
-                        ></div>
-                      ))}
-                    </div>
-                    <svg className="absolute inset-0 w-full h-full" viewBox="0 0 300 200">
-                      <path
-                        d="M 0 180 Q 75 120 150 80 T 300 20"
-                        stroke="rgb(251 191 36)"
-                        strokeWidth="3"
-                        fill="none"
-                        opacity="0.8"
-                      />
-                    </svg>
+                    <img 
+                      src={Lp1} 
+                      alt="Decentralized Computing Network" 
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                 </div>
                 <div className="p-8">
                   <h3 className="text-xl font-semibold text-white mb-4">High-Yield Staking</h3>
                   <p className="text-gray-400 mb-6">
-                    Earn an impressive up to 13.7% APY on your <span className="text-green-400">ASVO tokens</span>. Our innovative staking packages are designed for maximum returns.
+                    Earn an impressive up to 15.7% APY on your <span className="text-green-400">ASVO tokens</span>. Our innovative staking packages are designed for maximum returns.
                   </p>
                   <button className="flex items-center text-white hover:text-green-400 transition-colors group">
                     <span>Learn More</span>
@@ -244,28 +233,13 @@ const Landing = () => {
 
               {/* Decentralized Computing Network Card */}
               <div className="bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-2xl overflow-hidden group hover:border-green-500/30 transition-all duration-300">
-                <div className="h-64 bg-gradient-to-br from-green-600/20 to-emerald-600/20 p-8 flex items-center justify-center">
-                  {/* Network visualization placeholder */}
-                  <div className="relative w-full h-full flex items-center justify-center">
-                    <div className="grid grid-cols-3 gap-4">
-                      {[...Array(9)].map((_, i) => (
-                        <div
-                          key={i}
-                          className={`w-16 h-16 bg-gradient-to-br from-green-500/30 to-emerald-500/30 rounded-lg border border-green-500/50 ${
-                            i === 4 ? 'scale-125 shadow-lg shadow-green-500/50' : ''
-                          }`}
-                        >
-                          <div className="w-full h-full rounded-lg bg-gradient-to-br from-transparent to-green-500/20"></div>
-                        </div>
-                      ))}
-                    </div>
-                    {/* Connecting lines */}
-                    <svg className="absolute inset-0 w-full h-full" viewBox="0 0 300 300">
-                      <line x1="50" y1="50" x2="150" y2="150" stroke="rgb(34 197 94)" strokeWidth="2" opacity="0.3" />
-                      <line x1="250" y1="50" x2="150" y2="150" stroke="rgb(34 197 94)" strokeWidth="2" opacity="0.3" />
-                      <line x1="50" y1="250" x2="150" y2="150" stroke="rgb(34 197 94)" strokeWidth="2" opacity="0.3" />
-                      <line x1="250" y1="250" x2="150" y2="150" stroke="rgb(34 197 94)" strokeWidth="2" opacity="0.3" />
-                    </svg>
+              <div className="h-64  flex items-center justify-center">
+                  <div className="relative w-full h-full">
+                    <img 
+                      src={Lp2} 
+                      alt="Decentralized Computing Network" 
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                 </div>
                 <div className="p-8">
@@ -282,31 +256,13 @@ const Landing = () => {
 
               {/* Robust Security & Transparency Card */}
               <div className="bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-2xl overflow-hidden group hover:border-green-500/30 transition-all duration-300">
-                <div className="h-64 bg-gradient-to-br from-green-600/20 to-blue-600/20 p-8 flex items-center justify-center">
-                  {/* Security visualization placeholder */}
-                  <div className="relative w-full h-full flex items-center justify-center">
-                    <div className="relative">
-                      {/* Circuit board background */}
-                      <div className="absolute inset-0 opacity-20">
-                        {[...Array(5)].map((_, i) => (
-                          <div
-                            key={i}
-                            className="absolute h-0.5 bg-green-500"
-                            style={{
-                              width: `${Math.random() * 100 + 50}px`,
-                              top: `${i * 30 + 20}px`,
-                              left: `${Math.random() * 50 - 25}px`,
-                            }}
-                          ></div>
-                        ))}
-                      </div>
-                      {/* Lock icon */}
-                      <div className="relative w-32 h-32 bg-gradient-to-br from-green-500/30 to-blue-500/30 rounded-2xl border-2 border-green-500 flex items-center justify-center">
-                        <svg className="w-16 h-16 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                        </svg>
-                      </div>
-                    </div>
+              <div className="h-64  flex items-center justify-center">
+                  <div className="relative w-full h-full">
+                    <img 
+                      src={Lp3} 
+                      alt="Decentralized Computing Network" 
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                 </div>
                 <div className="p-8">
@@ -327,7 +283,7 @@ const Landing = () => {
           <div className="relative mt-32 py-20">
             {/* Background gradient effects */}
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-green-900/10 to-transparent"></div>
-            
+
             <div className="relative z-10 text-center mb-16">
               <p className="text-gray-400 text-sm mb-4">Stake Your ASVO</p>
               <h2 className="text-4xl md:text-5xl font-bold text-white">
@@ -347,7 +303,7 @@ const Landing = () => {
                   <span className="text-green-400 font-bold">01</span>
                 </div>
                 <h3 className="text-2xl font-semibold text-white mb-6">Micro Node</h3>
-                
+
                 <ul className="space-y-4 mb-8">
                   <li className="flex items-start">
                     <span className="text-gray-400 mr-2">•</span>
@@ -375,9 +331,9 @@ const Landing = () => {
                     <span className="text-gray-300">Entry-level, short lock-in, early withdrawal. Perfect for beginners.</span>
                   </li>
                 </ul>
-                
-                <Button 
-                  variant="outline" 
+
+                <Button
+                  variant="outline"
                   className="w-full border-green-500/50 text-white hover:bg-green-500/10 hover:border-green-500"
                   onClick={() => navigate('/stake')}
                 >
@@ -392,7 +348,7 @@ const Landing = () => {
                   <span className="text-green-400 font-bold">02</span>
                 </div>
                 <h3 className="text-2xl font-semibold text-white mb-6">Data Streamer</h3>
-                
+
                 <ul className="space-y-4 mb-8">
                   <li className="flex items-start">
                     <span className="text-gray-400 mr-2">•</span>
@@ -420,9 +376,9 @@ const Landing = () => {
                     <span className="text-gray-300">Higher returns, network data rewards, priority governance.</span>
                   </li>
                 </ul>
-                
-                <Button 
-                  variant="outline" 
+
+                <Button
+                  variant="outline"
                   className="w-full border-green-500/50 text-white hover:bg-green-500/10 hover:border-green-500"
                   onClick={() => navigate('/stake')}
                 >
@@ -437,7 +393,7 @@ const Landing = () => {
                   <span className="text-green-400 font-bold">03</span>
                 </div>
                 <h3 className="text-2xl font-semibold text-white mb-6">Core Validator Tier</h3>
-                
+
                 <ul className="space-y-4 mb-8">
                   <li className="flex items-start">
                     <span className="text-gray-400 mr-2">•</span>
@@ -465,9 +421,9 @@ const Landing = () => {
                     <span className="text-gray-300">Highest APY, full governance rights, exclusive features.</span>
                   </li>
                 </ul>
-                
-                <Button 
-                  variant="outline" 
+
+                <Button
+                  variant="outline"
                   className="w-full border-green-500/50 text-white hover:bg-green-500/10 hover:border-green-500"
                   onClick={() => navigate('/stake')}
                 >
@@ -534,100 +490,166 @@ const Landing = () => {
                   </div>
                 </div>
 
-                {/* Pie Chart */}
+                                {/* Pie Chart */}
                 <div className="order-1 lg:order-2 flex justify-center items-center">
                   <div className="relative w-96 h-96">
                     {/* 3D effect shadow */}
-                    <div className="absolute inset-0 transform translate-y-4 opacity-30">
-                      <svg viewBox="0 0 400 400" className="w-full h-full">
+                    <div className="absolute inset-0 transform translate-y-8 scale-95 opacity-20">
+                      <svg viewBox="0 0 440 440" className="w-full h-full">
                         <defs>
-                          <filter id="blur">
-                            <feGaussianBlur in="SourceGraphic" stdDeviation="3" />
+                          <filter id="blur" x="-50%" y="-50%" width="200%" height="200%">
+                            <feGaussianBlur in="SourceGraphic" stdDeviation="8" />
                           </filter>
+                          <radialGradient id="shadowGrad">
+                            <stop offset="0%" stopColor="rgb(34 197 94)" stopOpacity="0.3" />
+                            <stop offset="100%" stopColor="rgb(0 0 0)" stopOpacity="0.8" />
+                          </radialGradient>
                         </defs>
-                        <circle cx="200" cy="200" r="160" fill="black" filter="url(#blur)" />
+                        <ellipse cx="220" cy="220" rx="180" ry="160" fill="url(#shadowGrad)" filter="url(#blur)" />
                       </svg>
                     </div>
                     
-                    {/* Main pie chart */}
-                    <svg viewBox="0 0 400 400" className="relative z-10 w-full h-full transform" style={{ transform: 'rotateX(15deg)' }}>
+                    {/* Main pie chart with 3D effect */}
+                    <svg viewBox="0 0 440 440" className="relative z-10 w-full h-full" style={{ filter: 'drop-shadow(0 10px 30px rgba(0,0,0,0.5))' }}>
                       <defs>
+                        {/* Gradients for 3D effect */}
                         <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-                          <stop offset="0%" stopColor="rgb(34 197 94)" stopOpacity="1" />
-                          <stop offset="100%" stopColor="rgb(22 163 74)" stopOpacity="1" />
+                          <stop offset="0%" stopColor="rgb(134 239 172)" stopOpacity="1" />
+                          <stop offset="50%" stopColor="rgb(34 197 94)" stopOpacity="1" />
+                          <stop offset="100%" stopColor="rgb(21 128 61)" stopOpacity="1" />
                         </linearGradient>
                         <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
-                          <stop offset="0%" stopColor="rgb(74 222 128)" stopOpacity="1" />
+                          <stop offset="0%" stopColor="rgb(187 247 208)" stopOpacity="1" />
+                          <stop offset="50%" stopColor="rgb(134 239 172)" stopOpacity="1" />
                           <stop offset="100%" stopColor="rgb(34 197 94)" stopOpacity="1" />
                         </linearGradient>
                         <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
-                          <stop offset="0%" stopColor="rgb(16 185 129)" stopOpacity="1" />
-                          <stop offset="100%" stopColor="rgb(5 150 105)" stopOpacity="1" />
+                          <stop offset="0%" stopColor="rgb(34 197 94)" stopOpacity="1" />
+                          <stop offset="50%" stopColor="rgb(22 163 74)" stopOpacity="1" />
+                          <stop offset="100%" stopColor="rgb(20 83 45)" stopOpacity="1" />
                         </linearGradient>
                         <linearGradient id="grad4" x1="0%" y1="0%" x2="100%" y2="100%">
-                          <stop offset="0%" stopColor="rgb(52 211 153)" stopOpacity="1" />
-                          <stop offset="100%" stopColor="rgb(16 185 129)" stopOpacity="1" />
+                          <stop offset="0%" stopColor="rgb(74 222 128)" stopOpacity="1" />
+                          <stop offset="50%" stopColor="rgb(34 197 94)" stopOpacity="1" />
+                          <stop offset="100%" stopColor="rgb(22 163 74)" stopOpacity="1" />
                         </linearGradient>
                         <linearGradient id="grad5" x1="0%" y1="0%" x2="100%" y2="100%">
-                          <stop offset="0%" stopColor="rgb(20 184 166)" stopOpacity="1" />
-                          <stop offset="100%" stopColor="rgb(13 148 136)" stopOpacity="1" />
+                          <stop offset="0%" stopColor="rgb(52 211 153)" stopOpacity="1" />
+                          <stop offset="50%" stopColor="rgb(16 185 129)" stopOpacity="1" />
+                          <stop offset="100%" stopColor="rgb(5 150 105)" stopOpacity="1" />
                         </linearGradient>
                         <linearGradient id="grad6" x1="0%" y1="0%" x2="100%" y2="100%">
-                          <stop offset="0%" stopColor="rgb(94 234 212)" stopOpacity="1" />
-                          <stop offset="100%" stopColor="rgb(20 184 166)" stopOpacity="1" />
+                          <stop offset="0%" stopColor="rgb(110 231 183)" stopOpacity="1" />
+                          <stop offset="50%" stopColor="rgb(52 211 153)" stopOpacity="1" />
+                          <stop offset="100%" stopColor="rgb(16 185 129)" stopOpacity="1" />
                         </linearGradient>
                         <linearGradient id="grad7" x1="0%" y1="0%" x2="100%" y2="100%">
-                          <stop offset="0%" stopColor="rgb(132 204 22)" stopOpacity="1" />
-                          <stop offset="100%" stopColor="rgb(101 163 13)" stopOpacity="1" />
+                          <stop offset="0%" stopColor="rgb(134 239 172)" stopOpacity="1" />
+                          <stop offset="50%" stopColor="rgb(74 222 128)" stopOpacity="1" />
+                          <stop offset="100%" stopColor="rgb(34 197 94)" stopOpacity="1" />
                         </linearGradient>
                         <linearGradient id="grad8" x1="0%" y1="0%" x2="100%" y2="100%">
                           <stop offset="0%" stopColor="rgb(163 230 53)" stopOpacity="1" />
-                          <stop offset="100%" stopColor="rgb(132 204 22)" stopOpacity="1" />
+                          <stop offset="50%" stopColor="rgb(132 204 22)" stopOpacity="1" />
+                          <stop offset="100%" stopColor="rgb(101 163 13)" stopOpacity="1" />
                         </linearGradient>
                         <linearGradient id="grad9" x1="0%" y1="0%" x2="100%" y2="100%">
-                          <stop offset="0%" stopColor="rgb(134 239 172)" stopOpacity="1" />
-                          <stop offset="100%" stopColor="rgb(74 222 128)" stopOpacity="1" />
+                          <stop offset="0%" stopColor="rgb(217 249 157)" stopOpacity="1" />
+                          <stop offset="50%" stopColor="rgb(190 242 100)" stopOpacity="1" />
+                          <stop offset="100%" stopColor="rgb(163 230 53)" stopOpacity="1" />
                         </linearGradient>
+                        
+                        {/* 3D lighting effect */}
+                        <radialGradient id="highlight" cx="40%" cy="40%">
+                          <stop offset="0%" stopColor="white" stopOpacity="0.3" />
+                          <stop offset="100%" stopColor="white" stopOpacity="0" />
+                        </radialGradient>
                       </defs>
                       
-                      {/* ICO (33%) */}
-                      <path d="M 200 200 L 200 40 A 160 160 0 0 1 360 140 Z" fill="url(#grad1)" stroke="black" strokeWidth="2" />
-                      <text x="280" y="100" fill="black" fontSize="20" fontWeight="bold">33%</text>
-                      
-                      {/* Staking & Rewards (25%) */}
-                      <path d="M 200 200 L 360 140 A 160 160 0 0 1 340 280 Z" fill="url(#grad2)" stroke="black" strokeWidth="2" />
-                      <text x="320" y="220" fill="black" fontSize="20" fontWeight="bold">25%</text>
-                      
-                      {/* Ecosystem Development (10%) */}
-                      <path d="M 200 200 L 340 280 A 160 160 0 0 1 260 340 Z" fill="url(#grad4)" stroke="black" strokeWidth="2" />
-                      <text x="270" y="310" fill="black" fontSize="18" fontWeight="bold">10%</text>
-                      
-                      {/* Treasury & DAO (8%) */}
-                      <path d="M 200 200 L 260 340 A 160 160 0 0 1 180 350 Z" fill="url(#grad5)" stroke="black" strokeWidth="2" />
-                      <text x="210" y="340" fill="black" fontSize="16" fontWeight="bold">8%</text>
-                      
-                      {/* Team & Advisors (7%) */}
-                      <path d="M 200 200 L 180 350 A 160 160 0 0 1 110 330 Z" fill="url(#grad3)" stroke="black" strokeWidth="2" />
-                      <text x="140" y="340" fill="white" fontSize="16" fontWeight="bold">7%</text>
-                      
-                      {/* Infrastructure (7%) */}
-                      <path d="M 200 200 L 110 330 A 160 160 0 0 1 60 280 Z" fill="url(#grad6)" stroke="black" strokeWidth="2" />
-                      <text x="80" y="310" fill="black" fontSize="16" fontWeight="bold">7%</text>
-                      
-                      {/* Marketing (5%) */}
-                      <path d="M 200 200 L 60 280 A 160 160 0 0 1 40 220 Z" fill="url(#grad7)" stroke="black" strokeWidth="2" />
-                      <text x="50" y="250" fill="black" fontSize="16" fontWeight="bold">5%</text>
-                      
-                      {/* Exchange Liquidity (3%) */}
-                      <path d="M 200 200 L 40 220 A 160 160 0 0 1 40 180 Z" fill="url(#grad8)" stroke="black" strokeWidth="2" />
-                      <text x="50" y="200" fill="black" fontSize="14" fontWeight="bold">3%</text>
-                      
-                      {/* Community (2%) */}
-                      <path d="M 200 200 L 40 180 A 160 160 0 0 1 50 150 Z" fill="url(#grad9)" stroke="black" strokeWidth="2" />
-                      <text x="60" y="165" fill="black" fontSize="14" fontWeight="bold">2%</text>
-                      
-                      {/* Center hole for donut effect */}
-                      <circle cx="200" cy="200" r="60" fill="black" />
+                      <g transform="translate(220,220)">
+                        {/* Staking & Rewards (25%) - Pulled out slice */}
+                        <g transform="translate(15,-15)">
+                          <path d="M 0 0 L 0 -160 A 160 160 0 0 1 140 -77.3 Z" 
+                                fill="url(#grad2)" 
+                                stroke="none"
+                                style={{ filter: 'drop-shadow(0 5px 10px rgba(0,0,0,0.3))' }} />
+                          <path d="M 0 0 L 0 -160 A 160 160 0 0 1 140 -77.3 Z" 
+                                fill="url(#highlight)" 
+                                opacity="0.5" />
+                          <text x="70" y="-90" fill="black" fontSize="22" fontWeight="bold" textAnchor="middle">25%</text>
+                        </g>
+                        
+                        {/* ICO (33%) */}
+                        <g>
+                          <path d="M 0 0 L 140 -77.3 A 160 160 0 0 1 44.7 153.7 Z" 
+                                fill="url(#grad1)" 
+                                stroke="none" />
+                          <path d="M 0 0 L 140 -77.3 A 160 160 0 0 1 44.7 153.7 Z" 
+                                fill="url(#highlight)" 
+                                opacity="0.3" />
+                          <text x="120" y="20" fill="black" fontSize="22" fontWeight="bold" textAnchor="middle">33%</text>
+                        </g>
+                        
+                        {/* Ecosystem Development (10%) */}
+                        <g>
+                          <path d="M 0 0 L 44.7 153.7 A 160 160 0 0 1 -88.9 133 Z" 
+                                fill="url(#grad4)" 
+                                stroke="none" />
+                          <text x="-20" y="130" fill="black" fontSize="18" fontWeight="bold" textAnchor="middle">10%</text>
+                        </g>
+                        
+                        {/* Treasury & DAO (8%) */}
+                        <g>
+                          <path d="M 0 0 L -88.9 133 A 160 160 0 0 1 -149.9 56 Z" 
+                                fill="url(#grad5)" 
+                                stroke="none" />
+                          <text x="-110" y="80" fill="black" fontSize="16" fontWeight="bold" textAnchor="middle">8%</text>
+                        </g>
+                        
+                        {/* Team & Advisors (7%) */}
+                        <g>
+                          <path d="M 0 0 L -149.9 56 A 160 160 0 0 1 -159.4 -14.1 Z" 
+                                fill="url(#grad3)" 
+                                stroke="none" />
+                          <text x="-140" y="20" fill="white" fontSize="16" fontWeight="bold" textAnchor="middle">7%</text>
+                        </g>
+                        
+                        {/* Infrastructure (7%) */}
+                        <g>
+                          <path d="M 0 0 L -159.4 -14.1 A 160 160 0 0 1 -133 -88.9 Z" 
+                                fill="url(#grad6)" 
+                                stroke="none" />
+                          <text x="-130" y="-50" fill="black" fontSize="16" fontWeight="bold" textAnchor="middle">7%</text>
+                        </g>
+                        
+                        {/* Marketing (5%) */}
+                        <g>
+                          <path d="M 0 0 L -133 -88.9 A 160 160 0 0 1 -88.9 -133 Z" 
+                                fill="url(#grad7)" 
+                                stroke="none" />
+                          <text x="-100" y="-105" fill="black" fontSize="16" fontWeight="bold" textAnchor="middle">5%</text>
+                        </g>
+                        
+                        {/* Exchange Liquidity (3%) */}
+                        <g>
+                          <path d="M 0 0 L -88.9 -133 A 160 160 0 0 1 -44.7 -153.7 Z" 
+                                fill="url(#grad8)" 
+                                stroke="none" />
+                          <text x="-60" y="-135" fill="black" fontSize="14" fontWeight="bold" textAnchor="middle">3%</text>
+                        </g>
+                        
+                        {/* Community (2%) */}
+                        <g>
+                          <path d="M 0 0 L -44.7 -153.7 A 160 160 0 0 1 0 -160 Z" 
+                                fill="url(#grad9)" 
+                                stroke="none" />
+                          <text x="-20" y="-150" fill="black" fontSize="14" fontWeight="bold" textAnchor="middle">2%</text>
+                        </g>
+                        
+                        {/* Center hole for donut effect with gradient */}
+                        <circle cx="0" cy="0" r="70" fill="rgb(17 24 39)" />
+                        <circle cx="0" cy="0" r="68" fill="none" stroke="rgb(31 41 55)" strokeWidth="2" />
+                      </g>
                     </svg>
                   </div>
                 </div>
@@ -652,7 +674,7 @@ const Landing = () => {
               <div className="hidden lg:block relative">
                 {/* Main Vertical Line */}
                 <div className="absolute left-1/2 transform -translate-x-1/2 w-px h-full bg-green-500/30"></div>
-                
+
                 {/* Timeline Content */}
                 <div className="relative">
                   {/* Phase 1 */}
@@ -670,8 +692,8 @@ const Landing = () => {
                           <li className="text-gray-400">• Community Staking Portal (Basic version)</li>
                           <li className="text-gray-400">• Validator Onboarding Documentation</li>
                         </ul>
-                        <Button 
-                          variant="outline" 
+                        <Button
+                          variant="outline"
                           className="mt-6 border-green-500/50 text-green-400 hover:bg-green-500/10"
                           size="sm"
                           onClick={() => navigate('/ico')}
@@ -680,7 +702,7 @@ const Landing = () => {
                         </Button>
                       </div>
                     </div>
-                    
+
                     {/* Node on the line */}
                     <div className="absolute left-1/2 top-8 transform -translate-x-1/2 w-12 h-12 bg-green-500 rounded-full flex items-center justify-center z-10 shadow-lg shadow-green-500/50">
                       <svg className="w-6 h-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -704,8 +726,8 @@ const Landing = () => {
                           <li className="text-gray-400">• Exchange Listings & Liquidity Provisioning</li>
                           <li className="text-gray-400">• Expansion to Asia and Europe nodes</li>
                         </ul>
-                        <Button 
-                          variant="outline" 
+                        <Button
+                          variant="outline"
                           className="mt-6 border-green-500/50 text-green-400 hover:bg-green-500/10"
                           size="sm"
                           onClick={() => navigate('/ico')}
@@ -714,7 +736,7 @@ const Landing = () => {
                         </Button>
                       </div>
                     </div>
-                    
+
                     {/* Node on the line */}
                     <div className="absolute left-1/2 top-8 transform -translate-x-1/2 w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center z-10 border-2 border-green-500 shadow-lg shadow-green-500/30">
                       <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
@@ -739,8 +761,8 @@ const Landing = () => {
                           <li className="text-gray-400">• Physical Server NFTs launch (ownership + yield)</li>
                           <li className="text-gray-400">• Referral Leaderboards + Dev SDK for 3rd-party builders</li>
                         </ul>
-                        <Button 
-                          variant="outline" 
+                        <Button
+                          variant="outline"
                           className="mt-6 border-green-500/50 text-green-400 hover:bg-green-500/10"
                           size="sm"
                           onClick={() => navigate('/ico')}
@@ -749,7 +771,7 @@ const Landing = () => {
                         </Button>
                       </div>
                     </div>
-                    
+
                     {/* Node on the line */}
                     <div className="absolute left-1/2 top-8 transform -translate-x-1/2 w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center z-10 border-2 border-green-500 shadow-lg shadow-green-500/30">
                       <div className="w-6 h-6 bg-green-500 rounded-full"></div>
@@ -771,8 +793,8 @@ const Landing = () => {
                           <li className="text-gray-400">• Expansion to LATAM, Africa, SEA</li>
                           <li className="text-gray-400">• Launch Aussivo Ventures (On-chain Incubator)</li>
                         </ul>
-                        <Button 
-                          variant="outline" 
+                        <Button
+                          variant="outline"
                           className="mt-6 border-green-500/50 text-green-400 hover:bg-green-500/10"
                           size="sm"
                           onClick={() => navigate('/ico')}
@@ -781,7 +803,7 @@ const Landing = () => {
                         </Button>
                       </div>
                     </div>
-                    
+
                     {/* Node on the line */}
                     <div className="absolute left-1/2 top-8 transform -translate-x-1/2 w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center z-10 border-2 border-green-500 shadow-lg shadow-green-500/30">
                       <div className="grid grid-cols-2 gap-0.5 p-3">
@@ -800,7 +822,7 @@ const Landing = () => {
                 <div className="relative">
                   {/* Vertical line for mobile */}
                   <div className="absolute left-6 top-0 bottom-0 w-px bg-green-500/30"></div>
-                  
+
                   {/* Phase 1 Mobile */}
                   <div className="relative pl-16">
                     <div className="absolute left-0 w-12 h-12 bg-green-500 rounded-full flex items-center justify-center shadow-lg shadow-green-500/50">
@@ -954,29 +976,29 @@ const Landing = () => {
                     <div key={index} className="flex-none w-64 snap-center">
                       <div className="bg-gray-900/80 border border-gray-800 rounded-2xl p-6 hover:border-green-500/30 transition-all duration-300">
                         <div className="w-full h-48 bg-gray-800 rounded-lg mb-4 overflow-hidden">
-                          <img 
-                            src={member.image} 
+                          <img
+                            src={member.image}
                             alt={member.name}
                             className="w-full h-full object-cover"
                           />
                         </div>
                         <h3 className="text-white font-semibold text-lg mb-1">{member.name}</h3>
                         <p className="text-gray-400 text-sm mb-4">{member.role}</p>
-                        
+
                         <div className="flex items-center gap-3">
                           <a href={member.social.facebook} className="w-8 h-8 bg-gray-800 rounded flex items-center justify-center hover:bg-green-500/20 transition-colors">
                             <svg className="w-4 h-4 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
-                              <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/>
+                              <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
                             </svg>
                           </a>
                           <a href={member.social.linkedin} className="w-8 h-8 bg-gray-800 rounded flex items-center justify-center hover:bg-green-500/20 transition-colors">
                             <svg className="w-4 h-4 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
-                              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
                             </svg>
                           </a>
                           <a href={member.social.twitter} className="w-8 h-8 bg-gray-800 rounded flex items-center justify-center hover:bg-green-500/20 transition-colors">
                             <svg className="w-4 h-4 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
-                              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                             </svg>
                           </a>
                         </div>
@@ -1029,18 +1051,18 @@ const Landing = () => {
 
               {/* FAQ Tabs */}
               <div className="flex flex-wrap justify-center gap-4 mb-12">
-                <Button 
+                <Button
                   className="bg-green-500 text-black hover:bg-green-600 rounded-full px-6"
                 >
                   General Questions
                 </Button>
-                <Button 
+                <Button
                   variant="outline"
                   className="border-gray-600 text-gray-400 hover:text-white hover:border-gray-500 rounded-full px-6"
                 >
                   Token and Platform Related Questions
                 </Button>
-                <Button 
+                <Button
                   variant="outline"
                   className="border-gray-600 text-gray-400 hover:text-white hover:border-gray-500 rounded-full px-6"
                 >
@@ -1205,12 +1227,12 @@ const Landing = () => {
                     +971 12-345-6789
                   </a>
                 </div>
-                
+
                 {/* Social Media Links */}
                 <div className="flex items-center gap-3 pt-2">
                   <a href="#" className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gray-700 transition-colors">
                     <svg className="w-4 h-4 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/>
+                      <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
                     </svg>
                   </a>
                   <a href="#" className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gray-700 transition-colors">
@@ -1220,7 +1242,7 @@ const Landing = () => {
                   </a>
                   <a href="#" className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gray-700 transition-colors">
                     <svg className="w-4 h-4 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                     </svg>
                   </a>
                 </div>
