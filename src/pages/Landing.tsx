@@ -9,6 +9,7 @@ import { useActiveAccount } from "thirdweb/react";
 import Banner from '../assets/Images/banner.png';
 import Hand from '../assets/Images/Hand.png';
 import Logo from '../assets/Images/logo.svg';
+import BG from '../assets/Images/BG.png';
 const Landing = () => {
   const navigate = useNavigate();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -56,17 +57,132 @@ const Landing = () => {
                 Decentralized. Transparent. Profitable. Aussivo is the secure and high-yield staking platform for the <span className="text-svr-primary"> ASVO token</span>, designed for investors who want performance with peace of mind.
               </p>
               <div className="flex items-center gap-4">
-              <Button className="w-50 mt-5 bg-gradient-to-r from-svr-primary to-svr-accent hover:bg-black transition-all duration-300 py-3 rounded-full border border-svr-primary/30">
-              Explore ASVO Token
-              </Button>
-              <Button className="w-50 mt-5 bg-black  hover:bg-gradient-to-r from-svr-primary to-svr-accent transition-all duration-300 py-3 rounded-full border border-svr-primary/30">
-GET STARTED NOW 
-              </Button>
+                <Button className="w-50 mt-5 bg-gradient-to-r from-svr-primary to-svr-accent hover:bg-black transition-all duration-300 py-3 rounded-full border border-svr-primary/30">
+                  Explore ASVO Token
+                </Button>
+                <Button className="w-50 mt-5 bg-black  hover:bg-gradient-to-r from-svr-primary to-svr-accent transition-all duration-300 py-3 rounded-full border border-svr-primary/30">
+                  GET STARTED NOW
+                </Button>
               </div>
             </div>
             <div className="relative flex justify-center lg:justify-end">
               <div className="relative">
                 <img src={Hand} alt="Aussivo" className="w-full h-full object-cover" />
+              </div>
+            </div>
+          </div>
+          {/* Token Sale Section */}
+          <div className='relative'>
+            {/* <img src={BG} alt="Aussivo" className="absolute top-50 right-0" /> */}
+            <div className="absolute top-0 right-0 w-96 h-96 bg-green-500/10 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl"></div>
+            <div className="absolute top-50 right-0 w-64 h-64 bg-green-500/30 rounded-full blur-3xl">
+            </div>
+            <div className="relative mt-32  rounded-3xl p-8 md:p-12 overflow-hidden">
+              <div className="text-center">
+                <div className="">
+                  <span className='text-sm text-white bg-[#022C13] rounded-xl px-4 py-2'>ASVO Token Sale</span></div>
+                <h2 className="text-4xl md:text-5xl font-bold text-white my-6">
+
+                  Secure Your Early <span className="text-green-400">Advantage</span>
+                </h2>
+                <p className="text-gray-300 mb-12 text-lg">
+                  Participate in the Aussivo Token Sale and become a foundational part<br />
+                  of our revolutionary decentralized computing network.
+                </p>
+              </div>
+              {/* Background gradient effects */}
+              <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12">
+                {/* Left Content */}
+                <div>
+
+                  <div className="space-y-6 mb-12">
+                    <h3 className="text-2xl font-semibold text-white mb-6">Why Invest Now?</h3>
+
+                    <div className="flex items-start space-x-4">
+                      <div className="flex-shrink-0 w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center">
+                        <span className="text-green-400 font-bold">01</span>
+                      </div>
+                      <div>
+                        <h4 className="text-white font-semibold mb-1">Early Access</h4>
+                        <p className="text-gray-400 text-sm">Be among the first to experience platform features.</p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start space-x-4">
+                      <div className="flex-shrink-0 w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center">
+                        <span className="text-green-400 font-bold">02</span>
+                      </div>
+                      <div>
+                        <h4 className="text-white font-semibold mb-1">Higher Staking Rewards</h4>
+                        <p className="text-gray-400 text-sm">Unlock premium APY rates.</p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start space-x-4">
+                      <div className="flex-shrink-0 w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center">
+                        <span className="text-green-400 font-bold">03</span>
+                      </div>
+                      <div>
+                        <h4 className="text-white font-semibold mb-1">Premium Governance Rights</h4>
+                        <p className="text-gray-400 text-sm">Influence the future direction of the Aussivo ecosystem.</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <Button
+                    className="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-black font-bold px-8 py-4 rounded-full transition-all duration-200 shadow-lg hover:shadow-green-500/20 text-sm tracking-wide"
+                    onClick={() => navigate('/ico')}
+                  >
+                    BUY ASVO TOKEN
+                  </Button>
+                </div>
+
+                {/* Right Content - Token Sale Status */}
+                <div className="flex items-center justify-center">
+                  <div className="bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-2xl p-8 w-full max-w-md">
+                    <div className="flex justify-between items-center mb-6">
+                      <span className="text-gray-400">Stage</span>
+                      <span className="text-white font-semibold bg-gray-800 px-3 py-1 rounded">Seed</span>
+                    </div>
+
+                    <div className="mb-8">
+                      <div className="text-3xl font-bold text-green-400 mb-2">$0.04 - 1 ASVO</div>
+
+                      {/* Progress Bar */}
+                      <div className="relative h-3 bg-gray-800 rounded-full overflow-hidden mb-2">
+                        <div className="absolute inset-0 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full" style={{ width: '13.5%' }}></div>
+                      </div>
+                      <div className="text-right text-green-400 text-sm font-semibold">13.5%</div>
+                    </div>
+
+                    <div className="space-y-4">
+                      <div className="text-gray-400 text-center mb-4">ICO PRE SALE START IN:</div>
+
+                      <div className="grid grid-cols-4 gap-3">
+                        <div className="bg-gray-800 rounded-lg p-3 text-center">
+                          <div className="text-2xl font-bold text-white">228</div>
+                          <div className="text-xs text-gray-400 uppercase">Days</div>
+                        </div>
+                        <div className="bg-gray-800 rounded-lg p-3 text-center">
+                          <div className="text-2xl font-bold text-white">17</div>
+                          <div className="text-xs text-gray-400 uppercase">Hours</div>
+                        </div>
+                        <div className="bg-gray-800 rounded-lg p-3 text-center">
+                          <div className="text-2xl font-bold text-white">45</div>
+                          <div className="text-xs text-gray-400 uppercase">Minutes</div>
+                        </div>
+                        <div className="bg-gray-800 rounded-lg p-3 text-center">
+                          <div className="text-2xl font-bold text-white">20</div>
+                          <div className="text-xs text-gray-400 uppercase">Seconds</div>
+                        </div>
+                      </div>
+                      <div className="text-center text-xs text-gray-500 mt-4">
+                        Foundation, internal infrastructure, early believers
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
