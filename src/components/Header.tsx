@@ -37,8 +37,8 @@ const Header = () => {
   };
 
   return (
-    <header className="relative z-20 w-full border-b border-border/40 backdrop-blur-sm">
-      <div className="container flex h-16 items-center justify-between">
+    <header className="fixed z-20 w-full mx-auto mt-3">
+      <div className="container flex h-16 items-center justify-between backdrop-blur-sm rounded-xl border-2 border-svr-primary/15">
         <div className="flex items-center gap-2">
           <Link to="/" className="flex items-center space-x-2">
             <img src={Logo} alt="Aussivo" className="h-12 w-12" />
